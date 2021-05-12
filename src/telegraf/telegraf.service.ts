@@ -1,4 +1,5 @@
 import { Injectable, forwardRef, Inject } from '@nestjs/common';
+import { Context } from 'node:vm';
 import { Telegraf } from 'telegraf';
 import { IbmWatsonService } from '../ibm-watson/ibm-watson.service';
 
@@ -10,14 +11,15 @@ export class TelegrafService {
     private readonly watsonService: IbmWatsonService,
   ) {
     this.telegraf = new Telegraf(process.env.TELEGRAM_TOKEN);
-    this.telegraf.start((ctx) => {
-      return ctx.reply('Eai meu parceiro');
+    this.telegraf.start((ctx: Context) => {
+      return ctx.reply('Olá, eu sou a Sophia!');
     });
-    this.telegraf.on('text', (ctx) => {
+
+    this.telegraf.on('text', (ctx: Context) => {
       try {
         this.watsonService.watsonResponse(ctx);
       } catch (error) {
-        ctx.reply('Erro');
+        ctx.reply('Erro durante análise do Watson.');
       }
     });
     console.log('🤖 - Bot Started!');
@@ -26,10 +28,7 @@ export class TelegrafService {
     process.once('SIGTERM', () => this.telegraf.stop('SIGTERM'));
   }
 
-  showMessage(ctx, res) {
-    const { intents } = res.result.output || null;
-    intents.map((i) => {
-      ctx.reply(i);
-    });
+  showMessage(ctx: Context, msg: string) {
+    ctx.reply(msg);
   }
 }

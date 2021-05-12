@@ -9,9 +9,9 @@ export class WikipediaService {
     wiki.setLang('pt');
   }
 
-  async fetchContentFromWikipedia(content) {
+  fetchContentFromWikipedia(content) {
     try {
-      const summary = await wiki.summary(content);
+      const summary = wiki.summary(content);
       return summary;
     } catch (error) {
       console.log(error);

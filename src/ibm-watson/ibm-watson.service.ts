@@ -4,6 +4,7 @@ import NaturalLanguageUnderstandingV1 from 'ibm-watson/natural-language-understa
 import AssistantV2 from 'ibm-watson/assistant/v2';
 import { TelegrafService } from '../telegraf/telegraf.service';
 import { WikipediaService } from '../wikipedia/wikipedia.service';
+import { Context } from 'node:vm';
 
 @Injectable()
 export class IbmWatsonService {
@@ -19,10 +20,6 @@ export class IbmWatsonService {
     const assistantUrl = process.env.ASSISTANT_URL;
     const assistantApiKey = process.env.ASSISTANT_API_KEY;
 
-    const nluVersion = process.env.NLU_VERSION;
-    const nluUrl = process.env.NLU_URL;
-    const nluApiKey = process.env.NLU_API_KEY;
-
     this.assistant = new AssistantV2({
       version: assistantVersion,
       authenticator: new IamAuthenticator({
@@ -30,6 +27,10 @@ export class IbmWatsonService {
       }),
       serviceUrl: assistantUrl,
     });
+
+    const nluVersion = process.env.NLU_VERSION;
+    const nluUrl = process.env.NLU_URL;
+    const nluApiKey = process.env.NLU_API_KEY;
 
     this.nlu = new NaturalLanguageUnderstandingV1({
       version: nluVersion,
@@ -39,53 +40,65 @@ export class IbmWatsonService {
       serviceUrl: nluUrl,
     });
   }
-  watsonResponse(ctx) {
-    const userInput = ctx.update.message.text;
-    const analyzeParams = {
-      text: userInput,
-      features: {
-        categories: {
-          limit: 2,
+
+  async analyzeText(userInput: string) {
+    try {
+      const params = {
+        text: userInput,
+        features: {
+          categories: {
+            limit: 2,
+          },
+          keywords: {},
+          concepts: {},
         },
-        keywords: {},
-      },
-      language: 'pt',
-    };
-    this.nlu
-      .analyze(analyzeParams)
-      .then((analysisResults) => {
-        const keywords = analysisResults.result.keywords;
-        const categories = analysisResults.result.categories;
-        keywords.map((keyword) => {
-          this.wikipediaService
-            .fetchContentFromWikipedia(keyword.text)
-            .then((res) => {
-              if (res.extract !== undefined) {
-                ctx.reply(
-                  `Desculpe, ainda não sei nada sobre isso, porém realizei uma busca no Wikipedia: \n ${res.extract}`,
-                );
-              } else {
-                ctx.reply('Desculpe, ainda não sei nada sobre isso.');
-              }
-            });
-        });
-        categories.map((c) => {
-          ctx.reply(c.label);
-        });
-      })
-      .catch((err) => {
-        console.log('error:', err);
-      });
-    this.assistant
-      .messageStateless({
+        language: 'pt',
+      };
+
+      const analyzeText = await this.nlu.analyze(params);
+
+      const analyzeIntent = await this.assistant.messageStateless({
         assistantId: process.env.ASSISTANT_ID,
         input: {
           message_type: 'text',
           text: userInput,
         },
-      })
-      .then((res) => {
-        this.telegrafService.showMessage(ctx, res);
       });
+
+      const { keywords, concepts, categories } = analyzeText.result;
+      const { intents } = analyzeIntent.result.output;
+
+      return { keywords, concepts, categories, intents };
+    } catch (error) {
+      throw new Error('Não foi possível analisar o texto');
+    }
+  }
+
+  async searchWikipedia(content: string) {
+    try {
+      const result = await this.wikipediaService.fetchContentFromWikipedia(
+        content,
+      );
+      return result;
+    } catch (error) {
+      throw new Error('Não foi possível localizar os dados.');
+    }
+  }
+
+  async watsonResponse(ctx: Context) {
+    try {
+      const userInput = ctx.update.message.text;
+      const analyzeTextResult = await this.analyzeText(userInput);
+      const { keywords, concepts, categories, intents } = analyzeTextResult;
+      //Lógica para buscar na base ou wikipedia
+      const content = concepts[0].text || keywords[0].text;
+
+      const wikipediaResult = await this.searchWikipedia(content);
+
+      this.telegrafService.showMessage(ctx, wikipediaResult.extract);
+    } catch (err) {
+      console.log(err.message);
+      this.telegrafService.showMessage(ctx, err.message);
+    }
   }
 }
