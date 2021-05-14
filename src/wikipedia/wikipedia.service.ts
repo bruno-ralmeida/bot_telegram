@@ -9,12 +9,7 @@ export class WikipediaService {
     wiki.setLang('pt');
   }
 
-  fetchContentFromWikipedia(content) {
-    try {
-      const summary = wiki.summary(content);
-      return summary;
-    } catch (error) {
-      console.log(error);
-    }
+  fetchContentFromWikipedia(content: string) {
+    return wiki.summary(content);
   }
 }

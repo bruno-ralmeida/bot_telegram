@@ -74,14 +74,21 @@ export class IbmWatsonService {
     }
   }
 
-  async searchWikipedia(content: string) {
+  async searchWikipedia(content: string): Promise<string> {
     try {
       const result = await this.wikipediaService.fetchContentFromWikipedia(
         content,
       );
-      return result;
-    } catch (error) {
-      throw new Error('Não foi possível localizar os dados.');
+      const { extract } = result;
+      let msg: string;
+
+      extract
+        ? (msg = `Ainda não sei nada sobre isso, porém realizei uma busca na Wikipédia: \n ${extract}`)
+        : (msg = `Ainda não sei nada sobre isso.`);
+
+      return msg;
+    } catch (err) {
+      throw new Error('Não foi possível localizarj os dados.');
     }
   }
 
@@ -90,15 +97,27 @@ export class IbmWatsonService {
       const userInput = ctx.update.message.text;
       const analyzeTextResult = await this.analyzeText(userInput);
       const { keywords, concepts, categories, intents } = analyzeTextResult;
-      //Lógica para buscar na base ou wikipedia
-      const content = concepts[0].text || keywords[0].text;
+      //Lógica para buscar na base ou wikipedia -- case?
 
-      const wikipediaResult = await this.searchWikipedia(content);
+      if (intents[0].intent === 'greeting') {
+        return this.telegrafService.showMessage(ctx, 'Olá, eu sou a Sophia!');
+      }
 
-      this.telegrafService.showMessage(ctx, wikipediaResult.extract);
+      let content: string;
+      concepts.length > 0
+        ? (content = concepts[0].text)
+        : (content = keywords[0].text);
+
+      const wikipediaResponse = await this.searchWikipedia(content);
+
+      this.telegrafService.showMessage(
+        ctx,
+        `${JSON.stringify(categories)} 
+        \n ${JSON.stringify(intents)} 
+        \n ${wikipediaResponse}`,
+      );
     } catch (err) {
       console.log(err.message);
-      this.telegrafService.showMessage(ctx, err.message);
     }
   }
 }
