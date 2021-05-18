@@ -1,5 +1,6 @@
 import { Injectable, forwardRef, Inject } from '@nestjs/common';
 import { Context } from 'node:vm';
+import { GameService } from 'src/game/game.service';
 import { Telegraf } from 'telegraf';
 import { IbmWatsonService } from '../ibm-watson/ibm-watson.service';
 
@@ -22,6 +23,8 @@ export class TelegrafService {
         ctx.reply('Erro durante análise do Watson.');
       }
     });
+    const game = new GameService(this.telegraf);
+    game.loadGame();
     console.log('🤖 - Bot Started!');
     this.telegraf.launch();
     process.once('SIGINT', () => this.telegraf.stop('SIGINT'));
