@@ -12,17 +12,17 @@ export class TelegrafService {
     private readonly watsonService: IbmWatsonService,
   ) {
     this.telegraf = new Telegraf(process.env.TELEGRAM_TOKEN);
-    this.telegraf.start((ctx: Context) => {
-      return ctx.reply('Olá, eu sou a Sophia!');
-    });
+    // this.telegraf.start((ctx: Context) => {
+    //   return ctx.reply('Olá, eu sou a Sophia!');
+    // });
 
-    this.telegraf.on('text', (ctx: Context) => {
-      try {
-        this.watsonService.watsonResponse(ctx);
-      } catch (error) {
-        ctx.reply('Erro durante análise do Watson.');
-      }
-    });
+    // this.telegraf.on('text', (ctx: Context) => {
+    //   try {
+    //     this.watsonService.watsonResponse(ctx);
+    //   } catch (error) {
+    //     ctx.reply('Erro durante análise do Watson.');
+    //   }
+    // });
     const game = new GameService(this.telegraf);
     game.loadGame();
     console.log('🤖 - Bot Started!');
