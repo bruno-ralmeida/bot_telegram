@@ -4,12 +4,18 @@ import NaturalLanguageUnderstandingV1 from 'ibm-watson/natural-language-understa
 import AssistantV2 from 'ibm-watson/assistant/v2';
 import { TelegrafService } from '../telegraf/telegraf.service';
 import { WikipediaService } from '../wikipedia/wikipedia.service';
+import { ConceptsService } from '../repository/concepts/concepts.service';
+import { UsageService } from '../repository/usage/usage.service';
 import { Context } from 'node:vm';
 
 @Injectable()
 export class IbmWatsonService {
-  assistant: AssistantV2;
-  nlu: NaturalLanguageUnderstandingV1;
+  private assistant: AssistantV2;
+  private nlu: NaturalLanguageUnderstandingV1;
+  private msg = '';
+
+  private readonly conceptsService = new ConceptsService();
+  private readonly usageService = new UsageService();
 
   constructor(
     @Inject(forwardRef(() => TelegrafService))
@@ -51,6 +57,7 @@ export class IbmWatsonService {
           },
           keywords: {},
           concepts: {},
+          entities: {},
         },
         language: 'pt',
       };
@@ -97,25 +104,30 @@ export class IbmWatsonService {
       const userInput = ctx.update.message.text;
       const analyzeTextResult = await this.analyzeText(userInput);
       const { keywords, concepts, categories, intents } = analyzeTextResult;
-      //Lógica para buscar na base ou wikipedia -- case?
+      const intent = intents[0].intent;
 
-      if (intents[0].intent === 'greeting') {
-        return this.telegrafService.showMessage(ctx, 'Olá, eu sou a Sophia!');
+      if (intent === 'greeting') {
+        return ctx.reply('Olá');
       }
 
+      //Lógica para validar a categoria
       let content: string;
       concepts.length > 0
-        ? (content = concepts[0].text)
-        : (content = keywords[0].text);
+        ? (content = concepts[0].text || '')
+        : (content = keywords[0].text || '');
 
-      const wikipediaResponse = await this.searchWikipedia(content);
+      if (intent === 'doubts-about-technology') {
+        this.msg = this.conceptsService.fetchContentFromConceptsBase(content);
+      }
 
-      this.telegrafService.showMessage(
-        ctx,
-        `${JSON.stringify(categories)} 
-        \n ${JSON.stringify(intents)} 
-        \n ${wikipediaResponse}`,
-      );
+      if (intent === 'doubts-about-usage') {
+        this.msg = this.usageService.fetchContentFromUsageBase(content);
+      }
+
+      if (this.msg === '') {
+        this.msg = await this.searchWikipedia(content);
+      }
+      ctx.reply(this.msg);
     } catch (err) {
       console.log(err.message);
     }

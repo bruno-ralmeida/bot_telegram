@@ -5,6 +5,7 @@ import { TelegrafModule } from './telegraf/telegraf.module';
 import { ConfigModule } from '@nestjs/config';
 import { IbmWatsonModule } from './ibm-watson/ibm-watson.module';
 import { WikipediaModule } from './wikipedia/wikipedia.module';
+import { GameRepositoryModule } from './repository/game/gameRepository.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { WikipediaModule } from './wikipedia/wikipedia.module';
     TelegrafModule,
     IbmWatsonModule,
     WikipediaModule,
+    GameRepositoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
