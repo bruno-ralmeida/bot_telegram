@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { Injectable } from '@nestjs/common';
 import { Context } from 'node:vm';
 import { GameFormat } from 'src/helpers';
@@ -39,10 +40,11 @@ export class GameService {
   private gameMenuCategories: string[] = [];
   private questionsTrigger: string[] = [];
 
-  private questions: GameFormat[];
-  private options: string[] = [];
-  private questionIndex = 0;
-  private points = 0;
+  questions: GameFormat[];
+  options: string[] = [];
+  questionIndex = 0;
+
+  points = 0;
 
   constructor(private readonly bot: Telegraf) {
     this.bot = bot;
@@ -67,6 +69,7 @@ export class GameService {
 
       this.gameMenuCategories.push(Categories[key]);
     }
+
     //User response
     this.bot.hears(this.questionsTrigger, async (ctx) => {
       const userResponse = ctx.match.input;
@@ -86,26 +89,39 @@ export class GameService {
         await ctx.reply(`ACERTOUUUUU ⚽️ -  PONTUAÇÃO: ${this.points}`);
       } else await ctx.reply(`Errouuu 🤧 -  PONTUAÇÃO: ${this.points}`);
 
-      //Validar se é a ultima questão
-      this.questionIndex++;
+      let msg = '';
 
-      const questionInfo = `${
-        this.questions[this.questionIndex].category
-      } ${String(this.questionIndex + 1).padStart(3, '0')}`;
+      if (this.questionIndex < this.questions.length - 1) {
+        this.questionIndex++;
 
-      this.options = [];
-      this.questions[this.questionIndex].options.map((op, i) => {
-        const letter = this.alphabet[i].toUpperCase();
-        this.options.push(`${questionInfo} - ${letter}`);
-      });
+        const questionInfo = `${
+          this.questions[this.questionIndex].category
+        } ${String(this.questionIndex + 1).padStart(3, '0')}`;
 
-      const question = this.questions[this.questionIndex].question;
-      const msg = `${questionInfo} - ${question}\n\n${this.questions[
-        this.questionIndex
-      ].options.map(
-        (op, i) => `  ${this.alphabet[i].toUpperCase()} - ${op}\n\n`
-      )}        
-      `;
+        this.options = [];
+
+        this.questions[this.questionIndex].options.map((op, i) => {
+          const letter = this.alphabet[i].toUpperCase();
+          this.options.push(`${questionInfo} - ${letter}`);
+        });
+
+        const question = this.questions[this.questionIndex].question;
+        msg = `${questionInfo} - ${question}\n\n${this.questions[
+          this.questionIndex
+        ].options.map(
+          (op, i) => `  ${this.alphabet[i].toUpperCase()} - ${op}\n\n`
+        )}        
+        `;
+      } else {
+        this.questionIndex = 0;
+        this.options = [];
+        this.questions = [];
+        msg = `Você fez ${this.points} pontos.`;
+        this.points = 0;
+        this.options = ['/voltar'];
+        //Chamar menu principal
+        await ctx.reply('🎮', Markup.removeKeyboard());
+      }
 
       await ctx.reply(msg, Markup.keyboard(this.options));
     });
@@ -134,7 +150,6 @@ export class GameService {
       });
 
       await ctx.reply(msg, Markup.keyboard(this.options));
-      console.log(this.questionsTrigger);
     });
   }
 

@@ -1,5 +1,5 @@
 import { GameFormat } from '../../helpers';
-//obj
+
 export enum Categories {
   BACKEND = 'Back-End',
   FRONTEND = 'Front-End',
