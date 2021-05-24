@@ -15,7 +15,6 @@ export class TelegrafService {
     'Game',
   ];
   private readonly menuTrigger = ['sophia', 'menu', 'opções'];
-
   private category = '';
 
   constructor(
@@ -32,48 +31,52 @@ export class TelegrafService {
     });
 
     //Trigger Menu
-    this.telegraf.hears(
-      this.menuTrigger.map((mt) => mt.toLowerCase()),
-      async (ctx) => {
-        const name = ctx.update.message.from.first_name;
-        const msg = `Oie, ${name}! Voltei! Vou lhe passar os menus novamente!`;
-        this.showStartupMenu(msg, ctx);
-      },
-    );
+    this.telegraf.hears(this.menuTrigger, async (ctx) => {
+      const name = ctx.update.message.from.first_name;
+      const msg = `Oie, ${name}! Voltei! Vou lhe passar os menus novamente!`;
+      this.showStartupMenu(msg, ctx);
+    });
+
     const game = new GameService(this.telegraf);
     //Trigger Start Menu
-    this.telegraf.hears(
-      this.menuOptions.map((op) => op),
-      async (ctx) => {
-        this.category = ctx.match.input;
-        switch (this.category) {
-          case 'Conversar comigo':
-            await ctx.reply(
-              'Certo! O que você gostaria de saber? ✨️',
-              Markup.removeKeyboard(),
-            );
-            break;
-          case 'Carreira':
-            await ctx.reply('Vamos conversar de carreira meu bom. 💼');
-            break;
-          case 'Links Úteis':
-            await ctx.reply('Vou te enviar uns links meu bom. 💡');
-            break;
-          case 'Game':
-            await ctx.reply('Certo! Vamos jogar 🎮');
-            await game.startGame(ctx);
-            break;
-          default:
-            await ctx.reply('❌️ Selecione uma opção válida. ❌️');
-            break;
-        }
-      },
-    );
+    this.telegraf.hears(this.menuOptions, async (ctx) => {
+      this.category = ctx.match.input;
+      switch (this.category) {
+        case 'Conversar comigo':
+          await ctx.reply(
+            'Certo! O que você gostaria de saber? ✨️',
+            Markup.removeKeyboard(),
+          );
+          break;
+
+        case 'Carreira':
+          await ctx.reply('Vamos conversar de carreira meu bom. 💼');
+          break;
+
+        case 'Links Úteis':
+          await ctx.reply('Vou te enviar uns links meu bom. 💡');
+          break;
+
+        case 'Game':
+          await ctx.reply('Certo! Vamos jogar 🎮');
+          await game.startGame(ctx);
+          break;
+
+        default:
+          await ctx.reply('❌️ Selecione uma opção válida. ❌️');
+          break;
+      }
+    });
 
     this.telegraf.on('text', (ctx: Context) => {
       try {
-        if (this.category == 'Conversar comigo')
-          this.watsonService.watsonResponse(ctx);
+        if (this.category != 'Conversar comigo') {
+          return this.showStartupMenu(
+            'Por favor, informe uma opção válida',
+            ctx,
+          );
+        }
+        this.watsonService.watsonResponse(ctx);
       } catch (error) {
         ctx.reply('Erro durante análise do Watson.');
       }
