@@ -116,7 +116,7 @@ export class GameService {
         this.questionIndex = 0;
         this.options = [];
         this.questions = [];
-        msg = `Você fez ${this.points} pontos.`;
+        msg = `Você fez ${this.points} pontos. ✨️`;
         this.points = 0;
         this.options = ['/voltar'];
         //Chamar menu principal
