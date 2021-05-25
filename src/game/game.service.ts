@@ -75,8 +75,8 @@ export class GameService {
       const userResponse = ctx.match.input;
 
       const options = this.questions[this.questionIndex].options;
-      const awnser = this.questions[this.questionIndex].answer;
-      const position = options.indexOf(awnser);
+      const answer = this.questions[this.questionIndex].answer;
+      const position = options.indexOf(answer);
 
       const rightAnswer = `${
         this.questions[this.questionIndex].category

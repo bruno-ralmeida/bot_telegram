@@ -20,7 +20,6 @@ export class TelegrafService {
     private readonly watsonService: IbmWatsonService
   ) {
     this.telegraf = new Telegraf(process.env.TELEGRAM_TOKEN);
-
     const game = new GameService(this.telegraf);
     //Trigger Start Menu
     this.telegraf.hears(this.menuOptions, async (ctx) => {
@@ -43,6 +42,7 @@ export class TelegrafService {
 
         case 'Game':
           await ctx.reply('Certo! Vamos jogar 🎮');
+
           await game.startGame(ctx);
           break;
 
