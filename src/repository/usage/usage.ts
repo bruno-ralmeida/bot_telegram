@@ -30,5 +30,4 @@ const data: DataFormat[] = [
     value: 'var nome = valor',
   },
 ];
-
 export default data;
