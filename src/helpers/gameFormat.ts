@@ -1,6 +1,6 @@
+import { Categories } from './categories';
+
 export interface GameFormat {
-  category: string;
-  question: string;
-  options: string[];
-  answer: string;
+  category: Categories;
+  quizLink: string;
 }
