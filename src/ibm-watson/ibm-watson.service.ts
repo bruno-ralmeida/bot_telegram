@@ -102,7 +102,6 @@ export class IbmWatsonService {
   async watsonResponse(ctx: Context) {
     try {
       const userInput = ctx.update.message.text;
-      this.msg = userInput;
       const analyzeTextResult = await this.analyzeText(userInput);
       const { keywords, concepts, categories, intents } = analyzeTextResult;
       let intent = 'not-classified';
@@ -134,8 +133,6 @@ export class IbmWatsonService {
             if (intent === 'doubts-about-usage') {
               this.msg = this.usageService.fetchContentFromUsageBase(content);
             }
-
-            if (this.msg !== null) return;
           });
       }
 
@@ -154,7 +151,11 @@ export class IbmWatsonService {
         this.msg = await this.searchWikipedia(content);
       }
 
-      if (intent === 'not-classified')
+      if (
+        intent === 'not-classified' ||
+        (intent !== 'doubts-about-technology' &&
+          intent !== 'doubts-about-usage')
+      )
         this.msg =
           'Desculpe, não consegui classificar como uma dúvida referente a programação.';
 
