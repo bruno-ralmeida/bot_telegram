@@ -36,7 +36,6 @@ const data: DataFormat[] = [
     value:
       'Em programação de computadores, um arranjo (array) é uma estrutura de dados que armazena uma coleção de elementos de tal forma que cada um dos elementos possa ser identificado por, pelo menos, um índice ou uma chave.',
   },
-<<<<<<< HEAD
   {
     key: 'Código Fonte',
     value:
