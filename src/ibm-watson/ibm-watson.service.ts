@@ -118,7 +118,7 @@ export class IbmWatsonService {
         userInput
           .replace(/([\u0300-\u036f]|[^\s-0-9a-zA-Z])/g, '')
           .replace(
-            /\b(o|que|qual|como|e|de|uma|um|declarar|atribuir|valor)\b/gi,
+            /\b(o|que|qual|como|e|eh|de|uma|um|declarar|atribuir|valor)\b/gi,
             ''
           )
           .split(' ')
