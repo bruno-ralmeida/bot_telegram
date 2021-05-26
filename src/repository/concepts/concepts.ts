@@ -216,6 +216,22 @@ const data: DataFormat[] = [
     key: 'Web', 
     value: 'Sistema de informações ligadas através de texto, vídeo, som e outras animações digitais que permitem ao usuário acessar conteúdos através da internet.'
   },
+  { 
+    key: 'Sintaxe', 
+    value: 'Uma linguagem de programação normalmente tem uma sintaxe rígida, que é o conjunto de regras que determina quais combinações de símbolos e palavras-chaves podem ser utilizadas.'
+  },
+  { 
+    key: 'Semântica', 
+    value: 'Além da sintaxe, uma linguagem de programação deve definir uma semântica inambígua, isso é, a linguagem de programação deve definir o que significa cada uma das frases permitidas.'
+  },
+  { 
+    key: 'Compilação', 
+    value: 'Uma vez que temos um algoritmo escrito em uma linguagem de programação, ainda precisamos de um processo chamado de compilação, que é responsável por converter nosso programa de uma linguagem de programação de alto nível para a linguagem de montagem.'
+  },
+  { 
+    key: 'Função', 
+    value: 'A ideia básica de uma função, implementada em alguma linguagem de programação, é encapsular um código que poderá ser invocado/chamado por qualquer outro trecho do programa. Seu significado e uso são muito parecidos com o de funções matemáticas, ou seja, existe um nome, uma definição e posterior invocação à função.'
+  },
 ];
 
 export default data;
