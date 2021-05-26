@@ -97,11 +97,6 @@ const data: DataFormat[] = [
       'Uma matriz é uma coleção de variáveis de mesmo tipo, acessíveis com um único nome e armazenados contiguamente na memória.',
   },
   {
-    key: 'API',
-    value:
-      'É uma abreviação de Application Programming Interface, ou Interface de Programação de Aplicativos. APIs são serviços desenvolvidos e disponibilizados para que um ou mais produtos de software acessem e utilizem suas funcionalidades.',
-  },
-  {
     key: 'Back-end',
     value:
       'Programador que trabalha com a lógica da aplicação, armazenamento e segurança de todos os dados gerados.',
