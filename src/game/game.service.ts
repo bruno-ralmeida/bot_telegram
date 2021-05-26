@@ -75,8 +75,8 @@ export class GameService {
       const userResponse = ctx.match.input;
 
       const options = this.questions[this.questionIndex].options;
-      const awnser = this.questions[this.questionIndex].answer;
-      const position = options.indexOf(awnser);
+      const answer = this.questions[this.questionIndex].answer;
+      const position = options.indexOf(answer);
 
       const rightAnswer = `${
         this.questions[this.questionIndex].category
@@ -116,7 +116,7 @@ export class GameService {
         this.questionIndex = 0;
         this.options = [];
         this.questions = [];
-        msg = `Você fez ${this.points} pontos.`;
+        msg = `Você fez ${this.points} pontos. ✨️`;
         this.points = 0;
         this.options = ['/voltar'];
         //Chamar menu principal

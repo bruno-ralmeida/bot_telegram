@@ -1,25 +1,33 @@
 import { DataFormat } from '../../helpers';
 
-const data: DataFormat[] = [  
-  { 
-    key: 'Commitar', 
-    value: 'Atualizar o código do repositório com novas alterações. Seria semelhante a "salvar" o código do programador, fazendo uma espécie de checkpoint.'
+const data: DataFormat[] = [
+  {
+    key: 'Commitar',
+    value:
+      'Atualizar o código do repositório com novas alterações. Seria semelhante a "salvar" o código do programador, fazendo uma espécie de checkpoint.',
   },
-  { 
-    key: 'Dar push', 
-    value: 'Atualizar o código do repositório com novas alterações. Seria semelhante a "salvar" o código do programador, fazendo uma espécie de checkpoint.'
+  {
+    key: 'Dar push',
+    value:
+      'Atualizar o código do repositório com novas alterações. Seria semelhante a "salvar" o código do programador, fazendo uma espécie de checkpoint.',
   },
-  { 
-    key: 'Dar pull', 
-    value: 'Fazer download das alterações em determinada branch (ver significado) num repositório remoto em seu repositório local.'
+  {
+    key: 'Dar pull',
+    value:
+      'Fazer download das alterações em determinada branch (ver significado) num repositório remoto em seu repositório local.',
   },
-  { 
-    key: 'Debugar', 
-    value: 'Procurar por erros no código, analisando entradas e saídas.'
+  {
+    key: 'Debugar',
+    value: 'Procurar por erros no código, analisando entradas e saídas.',
   },
-  { 
-    key: 'Fazer deploy', 
-    value: 'É quando um sistema foi disponibilizado para uso, seja para testes ou produção.'
+  {
+    key: 'Fazer deploy',
+    value:
+      'É quando um sistema foi disponibilizado para uso, seja para testes ou produção.',
+  },
+  {
+    key: 'Variável',
+    value: 'var nome = valor',
   },
   { 
     key: 'O que é uma atribuição de variável?', 
@@ -42,5 +50,4 @@ const data: DataFormat[] = [
     value: 'O laço for é uma estrutura de repetição muito utilizada.' + 'É muito útil quando se sabe de antemão quantas vezes a repetição deverá ser executada.' + 'Este laço utiliza uma variável para controlar a contagem do loop, bem como seu incremento.' + 'Trata-se de um comando bem enxuto, já que própria estrutura faz a inicialização, incremento e encerramento do laço.' + 'Sintaxe:' + 'for(valor_inicial; condição_final; valor_incremento)'+ ' {' + ' instruções;' + ' }'
   },
 ];
-
 export default data;
