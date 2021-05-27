@@ -250,36 +250,24 @@ const data: DataFormat[] = [
       `Sistema de informações ligadas através de texto, vídeo, som e outras animações digitais que permitem ao usuário acessar conteúdos através da internet.`,
   },
   {
-    key: `Sintaxe`,
+    key: 'Sintaxe',
     value:
-      `Uma linguagem de programação normalmente tem uma sintaxe rígida, que é o conjunto de regras que determina quais combinações de símbolos e palavras-chaves podem ser utilizadas.`,
+      'Uma linguagem de programação normalmente tem uma sintaxe rígida, que é o conjunto de regras que determina quais combinações de símbolos e palavras-chaves podem ser utilizadas.',
   },
   {
-    key: `Semântica`,
+    key: 'Semântica',
     value:
-      `Além da sintaxe, uma linguagem de programação deve definir uma semântica inambígua, isso é, a linguagem de programação deve definir o que significa cada uma das frases permitidas.`,
+      'Além da sintaxe, uma linguagem de programação deve definir uma semântica inambígua, isso é, a linguagem de programação deve definir o que significa cada uma das frases permitidas.',
   },
   {
-    key: `Compilação`,
+    key: 'Compilação',
     value:
-      `Uma vez que temos um algoritmo escrito em uma linguagem de programação, ainda precisamos de um processo chamado de compilação, que é responsável por converter nosso programa de uma linguagem de programação de alto nível para a linguagem de montagem.`,
+      'Uma vez que temos um algoritmo escrito em uma linguagem de programação, ainda precisamos de um processo chamado de compilação, que é responsável por converter nosso programa de uma linguagem de programação de alto nível para a linguagem de montagem.',
   },
   {
-    key: `Função`,
+    key: 'Função',
     value:
-      `A ideia básica de uma função, implementada em alguma linguagem de programação, é encapsular um código que poderá ser invocado/chamado por qualquer outro trecho do programa. Seu significado e uso são muito parecidos com o de funções matemáticas, ou seja, existe um nome, uma definição e posterior invocação à função.`,
-  },
-  { 
-    key: `JSON`, 
-    value: `JSON é basicamente um formato leve de troca de informações/dados entre sistemas. O JSON além de ser um formato leve para troca de dados é também muito simples de ler.`
-  },
-  { 
-    key: `XML`, 
-    value: `XML, do inglês eXtensible Markup Language, é uma linguagem de marcação recomendada pela W3C para a criação de documentos com dados organizados hierarquicamente, tais como textos, banco de dados ou desenhos vetoriais. A linguagem XML é classificada como extensível porque permite definir os elementos de marcação.`
-  },
-  { 
-    key: `Linguagem de Marcação`, 
-    value: `Linguagem de marcação é um agregado de códigos que podem ser aplicados a dados ou textos para serem lidos por computadores ou pessoas. Por exemplo, o HTML é uma linguagem de marcação para organizar e formatar um website, já o XML tem o mesmo conceito, mas para padronizar uma sequência de dados com o objetivo de organizar, separar o conteúdo e integrá-lo com outras linguagens.`
+      'A ideia básica de uma função, implementada em alguma linguagem de programação, é encapsular um código que poderá ser invocado/chamado por qualquer outro trecho do programa. Seu significado e uso são muito parecidos com o de funções matemáticas, ou seja, existe um nome, uma definição e posterior invocação à função.',
   },
 ];
 
