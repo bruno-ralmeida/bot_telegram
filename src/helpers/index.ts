@@ -1,3 +1,3 @@
 export * from './dataFormat';
-export * from './gameFormat';
-export * from './categories';
+export * from './careersCategories';
+export * from './linksCategories';

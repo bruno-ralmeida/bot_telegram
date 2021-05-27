@@ -1,4 +1,4 @@
-export enum Categories {
+export enum CareersCategories {
   BACKEND = 'Back-End',
   FRONTEND = 'Front-End',
   DEVOPS = 'DevOps',

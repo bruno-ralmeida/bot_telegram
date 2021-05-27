@@ -1,5 +1,7 @@
 import { Injectable, forwardRef, Inject } from '@nestjs/common';
 import { Context } from 'node:vm';
+import { CareerService } from 'src/career/career.service';
+import { LinksService } from 'src/links/links.service';
 import { Markup, Telegraf } from 'telegraf';
 import { GameService } from '../game/game.service';
 import { IbmWatsonService } from '../ibm-watson/ibm-watson.service';
@@ -8,6 +10,8 @@ import { IbmWatsonService } from '../ibm-watson/ibm-watson.service';
 export class TelegrafService {
   telegraf: Telegraf;
   game: GameService;
+  links: LinksService;
+  career: CareerService;
 
   private category = '';
   private msg = '';
@@ -25,6 +29,8 @@ export class TelegrafService {
   ) {
     this.telegraf = new Telegraf(process.env.TELEGRAM_TOKEN);
     this.game = new GameService(this.telegraf);
+    this.links = new LinksService(this.telegraf);
+    this.career = new CareerService(this.telegraf);
 
     this.telegraf.hears(this.selectedOptionMenuTrigger, async (ctx) => {
       this.category = ctx.match.input;
@@ -38,10 +44,12 @@ export class TelegrafService {
 
         case 'Carreira':
           await ctx.reply('Vamos conversar de carreira meu bom. 💼');
+          await this.career.showRoadmap(ctx);
           break;
 
         case 'Links Úteis':
           await ctx.reply('Vou te enviar uns links meu bom. 💡');
+          await this.links.showLinks(ctx);
           break;
 
         case 'Game':

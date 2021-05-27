@@ -1,2 +1,5 @@
-t.me/QuizBot?start=NZAJSHj5  - BACKEND
+//Options até 100 caracteres
+// Question até 350 caracteres
+
+t.me/QuizBot?start=NZAJSHj5  = BACKEND
 t.me/QuizBot?start=GtJsyTJc  = DEVOPS

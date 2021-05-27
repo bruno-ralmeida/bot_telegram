@@ -1,9 +1,57 @@
 ## Projeto de extesão USJT 2021-01 🤖📕
 
-> #### Tecnologias utilizadas 🎨
+Neste projeto, o objetivo é desenvolver um Bot Telegram capaz de responder dúvidas básicas de programação. Os alunos terão uma aula de introdução ao desenvolvimento de Bots. O Bot desenvolvido irá responder dúvidas simples, em função de uma base de dados estática. Os alunos devem pesquisar e utilizar um mecanismo mais sofisticado como o [IBM Watson Assistant](https://developer.ibm.com/articles/introduction-watson-assistant/).
+
+> ### Integrantes 💼
+
+##### 1. Bruno Rocha de Almeida 👨🏾‍💻🧛🏾‍♂️
+
+- 🎓 81819312
+- ✉️ brunoalmeida.9312@aluno.saojudas.br
+
+##### 2. Camila Monteiro Appolinário 👩🏻‍💻🤖
+
+- 🎓 818233069
+- ✉️ camilaappolinario.3069@aluno.saojudas.br
+
+##### 3. Camilla Regina Freitas Silva 👩🏻‍💻🦹🏻‍♀️
+
+- 🎓 819119143
+- ✉️ camillasilva.9143@aluno.saojudas.br
+
+##### 4. Gabriel Cardoso da Silva 👨🏻‍💻👨🏻‍💼
+
+- 🎓 818136132
+- ✉️ gabrielsilva.6132@aluno.saojudas.br
+
+##### 5. Jan Nicolas Tenorio Vieira Lima 👨🏻‍💻🧞‍♂️
+
+- 🎓 819142318
+- ✉️ janlima.2318@aluno.saojudas.br
+
+##### 6. Leticia Silva Lopes 👩🏻‍💻❄️
+
+- 🎓 821132168
+- ✉️ leticialopes.8263@aluno.saojudas.br
+
+##### 7. Murillo Bilches Navarro 👨🏻‍💻🧙‍♂️
+
+- 🎓 818143772
+- ✉️ murillonavarro.3772@aluno.saojudas.br
+
+##### 8. Wagner Alves de Melo 👨🏻‍💻🧛🏻‍♂️
+
+- 🎓 818137692
+- ✉️ wagnermelo.7692@aluno.saojudas.br
+
+> #### Apresentação 📽️
+
+[Vídeo Sophia]()
+
+> #### Tecnologias utilizadas 💡
 
 - [Node.Js v14.x](https://nodejs.org/en/download/)
-- [Nesjs 7.6.0](https://nestjs.com/)
+- [Nest.js 7.6.0](https://nestjs.com/)
 - [IBM - Watson Assitant](https://www.ibm.com/br-pt/cloud/watson-assistant)
 - [IBM - Natural Language Undersanding](https://www.ibm.com/br-pt/cloud/watson-natural-language-understanding)
 
@@ -12,9 +60,9 @@
 > A `Sophia` possuí funções como
 
 - `Conversar comigo` Onde você pode questionar sobre dúvidas referentes a programação (Conceitos/Uso).
-- `Carreira` - Mostramos um guia de sugestão sobre o que estudar.
+- `Carreira` - Mostramos um guia de sugestão sobre o que estudar de acordo com a categoria selecionada.
 - `Links úteis` - Nessa sessão compartilhamos links que podem te ajudar no decorrer da carreira.
-- `Game` - Um jogo de pergunta e resposta, atualmente em 5 categorias (Back-end, Front-end, DevOps, Mobile, UI/UX).
+- `Game` - Um jogo de pergunta e resposta onde utilizamos o [`@quizbot`](https://telegram.org/tour/quizbot), atualmente em 5 categorias (Back-end, Front-end, DevOps, Mobile, UI/UX).
 
 > #### Inciando projeto.
 

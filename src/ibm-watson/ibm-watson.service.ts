@@ -115,6 +115,7 @@ export class IbmWatsonService {
 
       if (keywords.length <= 0 && concepts.length <= 0) {
         userInput
+          .normalize('NFD')
           .replace(/([\u0300-\u036f]|[^\s-0-9a-zA-Z])/g, '')
           .replace(
             /\b(o|que|qual|como|e|eh|de|uma|um|declarar|atribuir|valor)\b/gi,
@@ -122,16 +123,18 @@ export class IbmWatsonService {
           )
           .split(' ')
           .map((op) => {
-            content = op;
+            if (op != '') {
+              content = op;
 
-            if (intent === 'doubts-about-technology') {
-              this.msg = this.conceptsService.fetchContentFromConceptsBase(
-                content
-              );
-            }
+              if (intent === 'doubts-about-technology') {
+                this.msg = this.conceptsService.fetchContentFromConceptsBase(
+                  content
+                );
+              }
 
-            if (intent === 'doubts-about-usage') {
-              this.msg = this.usageService.fetchContentFromUsageBase(content);
+              if (intent === 'doubts-about-usage') {
+                this.msg = this.usageService.fetchContentFromUsageBase(content);
+              }
             }
           });
       }
@@ -139,7 +142,7 @@ export class IbmWatsonService {
       if (keywords.length > 0) content = keywords[0].text;
       else if (concepts.length > 0) content = concepts[0].text;
 
-      if (intent === 'doubts-about-technology') {
+      if (intent === 'doubts-about-concepts') {
         this.msg = this.conceptsService.fetchContentFromConceptsBase(content);
       }
 
@@ -151,13 +154,14 @@ export class IbmWatsonService {
         this.msg = await this.searchWikipedia(content);
       }
 
-      if (
-        intent === 'not-classified' ||
-        (intent !== 'doubts-about-technology' &&
-          intent !== 'doubts-about-usage')
-      )
-        this.msg =
-          'Desculpe, não consegui classificar como uma dúvida referente a programação.';
+      // if (
+      //   intent === 'not-classified' &&
+      //   intent !== 'doubts-about-technology' &&
+      //   intent !== 'doubts-about-usage'
+      // ) {
+      //   this.msg =
+      //     'Desculpe, não consegui classificar como uma dúvida referente a programação.';
+      // }
 
       return await ctx.reply(this.msg);
     } catch (err) {

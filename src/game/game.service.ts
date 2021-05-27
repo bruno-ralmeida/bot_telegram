@@ -1,29 +1,29 @@
-/* eslint-disable prefer-const */
 import { Injectable } from '@nestjs/common';
 import { Context } from 'node:vm';
-import { Categories } from 'src/helpers';
 import { Markup, Telegraf } from 'telegraf';
 import { GameRepositoryService } from '../repository/game/gameRepository.service';
 
 @Injectable()
 export class GameService {
   private readonly gameRepository = new GameRepositoryService();
-  private gameMenuCategories: string[] = [];
+  private readonly gameMenuCategories: string[] = [
+    'Back-End',
+    'Front-End',
+    'DevOps',
+    'Mobile',
+    'UI/UX',
+  ];
 
-  constructor(private readonly bot: Telegraf) {
-    this.bot = bot;
+  constructor(private readonly telegraf: Telegraf) {
+    this.telegraf = telegraf;
 
-    for (const key in Categories) {
-      this.gameMenuCategories.push(Categories[key]);
-    }
-
-    this.bot.hears(this.gameMenuCategories, async (ctx) => {
+    this.telegraf.hears(this.gameMenuCategories, async (ctx) => {
       const category = ctx.match.input;
       const gameCategory = await this.gameRepository.fetchContentFromGameBase(
         category
       );
 
-      const msg = `Você selecionou a categoria ${category}.\n Esse link pode ser compartilhado com amigos: \n${gameCategory.quizLink}`;
+      const msg = `Você selecionou a categoria ${category}.\n Esse link pode ser compartilhado com amigos: \n${gameCategory}`;
 
       ctx.reply(msg, Markup.keyboard(['/voltar']));
     });

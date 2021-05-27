@@ -1,28 +1,33 @@
-import { GameFormat, Categories } from '../../helpers';
+import { CareersCategories } from '../../helpers';
+
+interface GameFormat {
+  category: CareersCategories;
+  quizLink: string;
+}
 
 const data: GameFormat[] = [
   {
-    category: Categories.BACKEND,
+    category: CareersCategories.BACKEND,
     quizLink: 't.me/QuizBot?start=NZAJSHj5',
   },
   {
-    category: Categories.FRONTEND,
+    category: CareersCategories.FRONTEND,
     quizLink: 'Sem Link',
   },
   {
-    category: Categories.DEVOPS,
+    category: CareersCategories.DEVOPS,
     quizLink: 't.me/QuizBot?start=GtJsyTJc',
   },
   {
-    category: Categories.MOBILE,
+    category: CareersCategories.MOBILE,
     quizLink: 'Sem Link',
   },
   {
-    category: Categories.MOBILE,
+    category: CareersCategories.MOBILE,
     quizLink: 'Sem Link',
   },
   {
-    category: Categories.UIUX,
+    category: CareersCategories.UIUX,
     quizLink: 'Sem Link',
   },
 ];
