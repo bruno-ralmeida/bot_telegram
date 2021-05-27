@@ -4,12 +4,17 @@ import data from './game';
 
 @Injectable()
 export class GameRepositoryService {
+  private readonly base = data;
   fetchContentFromGameBase(category: string) {
-    const result = data.filter((d) => d.category == category);
-    return result;
-  }
+    const itemSearch = this.base.find((item) =>
+      item.category.includes(category)
+    );
+    let result = '';
 
-  selectAllCategories() {
-    return data;
+    typeof itemSearch !== 'undefined'
+      ? (result = `${itemSearch.category} - ${itemSearch.quizLink}`)
+      : (result = 'Desculpe, não consegui entender.');
+
+    return result;
   }
 }

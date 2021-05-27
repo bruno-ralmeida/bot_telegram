@@ -1,5 +1,7 @@
 import { Injectable, forwardRef, Inject } from '@nestjs/common';
 import { Context } from 'node:vm';
+import { CareerService } from 'src/career/career.service';
+import { LinksService } from 'src/links/links.service';
 import { Markup, Telegraf } from 'telegraf';
 import { GameService } from '../game/game.service';
 import { IbmWatsonService } from '../ibm-watson/ibm-watson.service';
@@ -7,22 +9,30 @@ import { IbmWatsonService } from '../ibm-watson/ibm-watson.service';
 @Injectable()
 export class TelegrafService {
   telegraf: Telegraf;
-  private readonly menuOptions = [
+  game: GameService;
+  links: LinksService;
+  career: CareerService;
+
+  private category = '';
+  private msg = '';
+  private readonly menuTrigger = ['/voltar', '/menu'];
+  private readonly selectedOptionMenuTrigger = [
     'Conversar comigo',
     'Carreira',
     'Links Úteis',
     'Game',
   ];
-  private category = '';
 
   constructor(
     @Inject(forwardRef(() => IbmWatsonService))
     private readonly watsonService: IbmWatsonService
   ) {
     this.telegraf = new Telegraf(process.env.TELEGRAM_TOKEN);
-    const game = new GameService(this.telegraf);
-    //Trigger Start Menu
-    this.telegraf.hears(this.menuOptions, async (ctx) => {
+    this.game = new GameService(this.telegraf);
+    this.links = new LinksService(this.telegraf);
+    this.career = new CareerService(this.telegraf);
+
+    this.telegraf.hears(this.selectedOptionMenuTrigger, async (ctx) => {
       this.category = ctx.match.input;
       switch (this.category) {
         case 'Conversar comigo':
@@ -34,16 +44,17 @@ export class TelegrafService {
 
         case 'Carreira':
           await ctx.reply('Vamos conversar de carreira meu bom. 💼');
+          await this.career.showRoadmap(ctx);
           break;
 
         case 'Links Úteis':
           await ctx.reply('Vou te enviar uns links meu bom. 💡');
+          await this.links.showLinks(ctx);
           break;
 
         case 'Game':
           await ctx.reply('Certo! Vamos jogar 🎮');
-
-          await game.startGame(ctx);
+          await this.game.startGame(ctx);
           break;
 
         default:
@@ -52,25 +63,22 @@ export class TelegrafService {
       }
     });
 
-    this.telegraf.start((ctx: Context) => {
-      this.resetGame(game);
+    this.telegraf.hears(this.menuTrigger, (ctx: Context) => {
       const name = ctx.update.message.from.first_name;
-      const msg = `Olá, ${name}! O meu nome é Sophia e hoje estou aqui para lhe ajudar! Para começarmos, vou lhe passar todas as opções que temos, e peço para que selecione a desejada! 
-      Ah, e caso queira voltar ao menu inicial, é só enviar "/start" ou "/voltar"! 🚀`;
-      this.showStartupMenu(msg, ctx);
+      this.msg = `Olá, ${name}!🚀`;
+      this.showStartupMenu(this.msg, ctx);
     });
 
-    this.telegraf.hears('/voltar', (ctx: Context) => {
-      this.resetGame(game);
+    this.telegraf.start((ctx: Context) => {
       const name = ctx.update.message.from.first_name;
-      const msg = `Olá, ${name}!🚀`;
-      this.showStartupMenu(msg, ctx);
+      this.msg = `Olá, ${name}! O meu nome é Sophia e hoje estou aqui para lhe ajudar! Para começarmos, vou lhe passar todas as opções que temos, e peço para que selecione a desejada! Ah, e caso queira voltar ao menu inicial, é só enviar: \n"/start","/voltar" ou "/menu"! 🚀`;
+      this.showStartupMenu(this.msg, ctx);
     });
 
     this.telegraf.on('text', (ctx: Context) => {
       try {
         if (this.category != 'Conversar comigo') {
-          return ctx.reply('Por favor, informe uma opção válida');
+          return ctx.reply('Por favor, informe uma opção válida do menu.');
         }
         this.watsonService.watsonResponse(ctx);
       } catch (error) {
@@ -84,15 +92,8 @@ export class TelegrafService {
   }
 
   async showStartupMenu(msg = '', ctx: Context) {
-    const btnMenu = Markup.keyboard(this.menuOptions).resize();
+    const btnMenu = Markup.keyboard(this.selectedOptionMenuTrigger).resize();
     await ctx.reply(msg, btnMenu);
     return;
-  }
-
-  private resetGame(game: GameService) {
-    game.options = [];
-    game.points = 0;
-    game.questions = [];
-    game.questionIndex = 0;
   }
 }
