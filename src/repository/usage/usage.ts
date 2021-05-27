@@ -30,10 +30,6 @@ const data: DataFormat[] = [
     value: 'var nome = valor',
   },
   { 
-    key: 'O que é uma atribuição de variável?', 
-    value: 'Atribuir significa armazenar um valor em uma variável.'
-  },
-  { 
     key: 'Como atribuir valor a uma variavel em c?', 
     value: 'Em linguagem C usamos o operador = para fazer uma atribuição.' +  'Exemplo:' +  'X = 10;' + 'Este comando atribui o valor 10 para a variável X.'
   },

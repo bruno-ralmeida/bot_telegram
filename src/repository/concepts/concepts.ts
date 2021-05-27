@@ -254,6 +254,10 @@ const data: DataFormat[] = [
     value: 'Uma linguagem de programação normalmente tem uma sintaxe rígida, que é o conjunto de regras que determina quais combinações de símbolos e palavras-chaves podem ser utilizadas.'
   },
   { 
+    key: 'O que é uma atribuição de variável?', 
+    value: 'Atribuir significa armazenar um valor em uma variável.'
+  },
+  { 
     key: 'Semântica', 
     value: 'Além da sintaxe, uma linguagem de programação deve definir uma semântica inambígua, isso é, a linguagem de programação deve definir o que significa cada uma das frases permitidas.'
   },
@@ -264,6 +268,18 @@ const data: DataFormat[] = [
   { 
     key: 'Função', 
     value: 'A ideia básica de uma função, implementada em alguma linguagem de programação, é encapsular um código que poderá ser invocado/chamado por qualquer outro trecho do programa. Seu significado e uso são muito parecidos com o de funções matemáticas, ou seja, existe um nome, uma definição e posterior invocação à função.'
+  },
+  { 
+    key: 'JSON', 
+    value: 'JSON é basicamente um formato leve de troca de informações/dados entre sistemas. O JSON além de ser um formato leve para troca de dados é também muito simples de ler.'
+  },
+  { 
+    key: 'XML', 
+    value: 'XML, do inglês eXtensible Markup Language, é uma linguagem de marcação recomendada pela W3C para a criação de documentos com dados organizados hierarquicamente, tais como textos, banco de dados ou desenhos vetoriais. A linguagem XML é classificada como extensível porque permite definir os elementos de marcação.'
+  },
+  { 
+    key: 'Linguagem de Marcação', 
+    value: 'Linguagem de marcação é um agregado de códigos que podem ser aplicados a dados ou textos para serem lidos por computadores ou pessoas. Por exemplo, o HTML é uma linguagem de marcação para organizar e formatar um website, já o XML tem o mesmo conceito, mas para padronizar uma sequência de dados com o objetivo de organizar, separar o conteúdo e integrá-lo com outras linguagens.'
   },
 ];
 
