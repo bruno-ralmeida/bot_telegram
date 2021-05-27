@@ -77,9 +77,9 @@ export class TelegrafService {
 
     this.telegraf.on('text', (ctx: Context) => {
       try {
-        if (this.category != 'Conversar comigo') {
+        if (this.category != 'Conversar comigo')
           return ctx.reply('Por favor, informe uma opção válida do menu.');
-        }
+
         this.watsonService.watsonResponse(ctx);
       } catch (error) {
         ctx.reply('Erro durante análise do Watson.');
