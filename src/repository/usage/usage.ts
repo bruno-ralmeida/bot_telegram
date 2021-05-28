@@ -22,7 +22,7 @@ const data: DataFormat[] = [
     value: `É quando um sistema foi disponibilizado para uso, seja para testes ou produção.`,
   },
   {
-    key: `variável`,
+    key: `variável Variação`,
     value: `Em linguagem C usamos o operador = para fazer uma atribuição.
       Exemplo:
       X = 10;

@@ -13,6 +13,7 @@ export class UsageService {
         .includes(
           content
             .normalize('NFD')
+            .toLowerCase()
             .replace(/([\u0300-\u036f]|[^\s-0-9a-zA-Z])/g, '')
         )
     );
