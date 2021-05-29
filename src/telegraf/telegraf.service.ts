@@ -35,6 +35,7 @@ export class TelegrafService {
 
     this.telegraf.hears(this.selectedOptionMenuTrigger, async (ctx) => {
       this.category = ctx.match.input;
+
       switch (this.category) {
         case 'Conversar comigo':
           await ctx.reply(
@@ -72,8 +73,8 @@ export class TelegrafService {
     });
 
     this.telegraf.start(async (ctx: Context) => {
-      await ctx.replyWithPhoto({
-        source: join(__dirname, '..', '..', './public/images/Sophia-3.jpg'),
+      await ctx.replyWithSticker({
+        source: join(__dirname, '..', '..', './public/images/sophia-3.jpg'),
       });
 
       const name = ctx.update.message.from.first_name;
