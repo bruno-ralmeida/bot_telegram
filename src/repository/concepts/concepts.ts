@@ -221,6 +221,14 @@ const data: DataFormat[] = [
     key: `Função`,
     value: `A ideia básica de uma função, implementada em alguma linguagem de programação, é encapsular um código que poderá ser invocado/chamado por qualquer outro trecho do programa. Seu significado e uso são muito parecidos com o de funções matemáticas, ou seja, existe um nome, uma definição e posterior invocação à função.`,
   },
+  {
+    key: `Escopo`,
+    value: `Em Ciência da Computação escopo é um contexto delimitante aos quais valores e expressões estão associados. Linguagens de programação têm diversos tipos de escopos. O tipo de escopo vai determinar quais tipos de entidades este pode conter e como estas são afetadas, em outras palavras, a sua semântica.`,
+  },
+  {
+    key: `Recursividade`,
+    value: `Em ciência da computação, a recursividade é a definição de uma sub-rotina (função ou método) que pode invocar a si mesma.`,
+  },
 ];
 
 export default data;
