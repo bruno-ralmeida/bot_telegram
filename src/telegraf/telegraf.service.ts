@@ -18,7 +18,7 @@ export class TelegrafService {
   private msg = '';
   private readonly menuTrigger = ['/voltar', '/menu'];
   private readonly selectedOptionMenuTrigger = [
-    'Conversar comigo',
+    'Conversar sobre programação',
     'Carreira',
     'Links Úteis',
     'Game',
@@ -37,7 +37,15 @@ export class TelegrafService {
       this.category = ctx.match.input;
 
       switch (this.category) {
-        case 'Conversar comigo':
+        case 'Conversar sobre programação':
+          await ctx.replyWithSticker({
+            source: join(
+              __dirname,
+              '..',
+              '..',
+              './public/images/sophia-doubt.png'
+            ),
+          });
           await ctx.reply(
             'Certo! O que você gostaria de saber? ✨️',
             Markup.removeKeyboard()
@@ -74,7 +82,7 @@ export class TelegrafService {
 
     this.telegraf.start(async (ctx: Context) => {
       await ctx.replyWithSticker({
-        source: join(__dirname, '..', '..', './public/images/sophia-3.jpg'),
+        source: join(__dirname, '..', '..', './public/images/sophia.png'),
       });
 
       const name = ctx.update.message.from.first_name;
@@ -85,7 +93,7 @@ export class TelegrafService {
 
     this.telegraf.on('text', (ctx: Context) => {
       try {
-        if (this.category != 'Conversar comigo')
+        if (this.category != 'Conversar sobre programação')
           return ctx.reply('Por favor, informe uma opção válida do menu.');
 
         this.watsonService.watsonResponse(ctx);

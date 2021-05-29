@@ -6,49 +6,8 @@ const data: DataFormat[] = [
     value: `Em matemática e ciência da computação, um algoritmo é uma sequência finita de ações executáveis que visam obter uma solução para um determinado tipo de problema. Segundo Dasgupta, Papadimitriou e Vazirani, "algoritmos são procedimentos precisos, não ambíguos, mecânicos, eficientes e corretos`,
   },
   {
-    key: `Lógica de Programação`,
-    value: `Programação lógica é um paradigma de programação que faz uso da lógica matemática. John McCarthy [1958] foi o primeiro a publicar uma proposta de uso da lógica matemática para programação`,
-  },
-  {
-    key: `API - Interface de programação de aplicações`,
-    value: `As APIs são um conjunto de padrões que fazem parte de uma interface e que permitem a criação de plataformas de maneira mais simples e prática para desenvolvedores. A partir de APIs é possível criar softwares, aplicativos, programas e plataformas diversas. Por exemplo, apps desenvolvidos para celulares Android e iPhone (iOS) são criados a partir de padrões definidos e disponibilizados pelas APIs de cada sistema operacional.`,
-  },
-  {
     key: `Variável`,
-    value: `Na programação, uma variável é um objeto capaz de reter e representar um valor ou expressão. Enquanto as variáveis só "existem" em tempo de execução, elas são associadas a "nomes", chamados identificadores, durante o tempo de desenvolvimento.
-    shorturl.at/vzIL7`,
-  },
-  {
-    key: `Estrutura de seleção ( if / se )`,
-    value: `Estrutura de seleção é, na ciência da computação, uma estrutura de desvio do fluxo de controle presente em linguagens de programação que realiza diferentes computações ou ações dependendo se a seleção é verdadeira ou falsa, em que a expressão é processada e transformada em um valor booleano.`,
-  },
-  {
-    key: `Estrutura de repetição ( loop / for / while / laço /  laço de repetição)`,
-    value: `Na maioria das linguagens de programação de computadores, um loop while é uma instrução de fluxo de controle que permite que o código seja executado repetidamente com base em uma determinada condição booleana. O loop while pode ser considerado uma declaração if de repetição.`,
-  },
-  {
-    key: `Array ( Vetor / Arranjo )`,
-    value: `Em programação de computadores, um arranjo (array) é uma estrutura de dados que armazena uma coleção de elementos de tal forma que cada um dos elementos possa ser identificado por, pelo menos, um índice ou uma chave.`,
-  },
-  {
-    key: `Código Fonte`,
-    value: `Criado em um editor de textos, contendo os comandos da linguagem de programação. Serve como entrada para o compilador.`,
-  },
-  {
-    key: `Código Objeto`,
-    value: `Criado pela conversão do código-fonte em linguagem de máquina. É gerado pelo compilador. Só é criado quando não há erros no código-fonte.`,
-  },
-  {
-    key: `Operadores aritméticos`,
-    value: `São aqueles que estudamos na escola, aquelas funções básicas de somar, subtrair, multiplicar, dividir, por exemplo.`,
-  },
-  {
-    key: `Operadores de relação`,
-    value: `Operadores relacionais são utilizados para comparar valores, o resultado de uma expressão relacional é um valor booleano (verdadeiro ou falso). Os operadores relacionais são: igual, diferente, maior, menor, maior ou igual, menor ou igual.`,
-  },
-  {
-    key: `Operadores Lógicos`,
-    value: `Os operadores lógicos são usados para representar situações lógicas que não podem ser representadas por operadores aritméticos. Também são chamados conectivos lógicos por unirem duas expressões simples numa composta. Podem ser operadores binários, que operam em duas sentenças ou expressões, ou unário que opera numa sentença só.`,
+    value: `Na programação, uma variável é um objeto capaz de reter e representar um valor ou expressão. Enquanto as variáveis só "existem" em tempo de execução, elas são associadas a "nomes", chamados identificadores, durante o tempo de desenvolvimento.`,
   },
   {
     key: `Int`,
@@ -83,7 +42,49 @@ const data: DataFormat[] = [
     value: `Uma matriz é uma coleção de variáveis de mesmo tipo, acessíveis com um único nome e armazenados contiguamente na memória.`,
   },
   {
-    key: `Back-end`,
+    key: `Lógica de Programação`,
+    value: `Programação lógica é um paradigma de programação que faz uso da lógica matemática. John McCarthy [1958] foi o primeiro a publicar uma proposta de uso da lógica matemática para programação`,
+  },
+  {
+    key: `API - Interface de programação de aplicações`,
+    value: `As APIs são um conjunto de padrões que fazem parte de uma interface e que permitem a criação de plataformas de maneira mais simples e prática para desenvolvedores. A partir de APIs é possível criar softwares, aplicativos, programas e plataformas diversas. Por exemplo, apps desenvolvidos para celulares Android e iPhone (iOS) são criados a partir de padrões definidos e disponibilizados pelas APIs de cada sistema operacional.`,
+  },
+
+  {
+    key: `Estrutura de seleção ( if / se )`,
+    value: `Estrutura de seleção é, na ciência da computação, uma estrutura de desvio do fluxo de controle presente em linguagens de programação que realiza diferentes computações ou ações dependendo se a seleção é verdadeira ou falsa, em que a expressão é processada e transformada em um valor booleano.`,
+  },
+  {
+    key: `Estrutura de repetição ( loop / for / while / laço /  laço de repetição)`,
+    value: `Na maioria das linguagens de programação de computadores, um loop while é uma instrução de fluxo de controle que permite que o código seja executado repetidamente com base em uma determinada condição booleana. O loop while pode ser considerado uma declaração if de repetição.`,
+  },
+  {
+    key: `Array ( Vetor / Arranjo )`,
+    value: `Em programação de computadores, um arranjo (array) é uma estrutura de dados que armazena uma coleção de elementos de tal forma que cada um dos elementos possa ser identificado por, pelo menos, um índice ou uma chave.`,
+  },
+  {
+    key: `Código Fonte`,
+    value: `Criado em um editor de textos, contendo os comandos da linguagem de programação. Serve como entrada para o compilador.`,
+  },
+  {
+    key: `Código Objeto`,
+    value: `Criado pela conversão do código-fonte em linguagem de máquina. É gerado pelo compilador. Só é criado quando não há erros no código-fonte.`,
+  },
+  {
+    key: `Operadores aritméticos`,
+    value: `São aqueles que estudamos na escola, aquelas funções básicas de somar, subtrair, multiplicar, dividir, por exemplo.`,
+  },
+  {
+    key: `Operadores de relação`,
+    value: `Operadores relacionais são utilizados para comparar valores, o resultado de uma expressão relacional é um valor booleano (verdadeiro ou falso). Os operadores relacionais são: igual, diferente, maior, menor, maior ou igual, menor ou igual.`,
+  },
+  {
+    key: `Operadores Lógicos`,
+    value: `Os operadores lógicos são usados para representar situações lógicas que não podem ser representadas por operadores aritméticos. Também são chamados conectivos lógicos por unirem duas expressões simples numa composta. Podem ser operadores binários, que operam em duas sentenças ou expressões, ou unário que opera numa sentença só.`,
+  },
+
+  {
+    key: `Back-end backend`,
     value: `Programador que trabalha com a lógica da aplicação, armazenamento e segurança de todos os dados gerados.`,
   },
   {
@@ -221,6 +222,14 @@ const data: DataFormat[] = [
   {
     key: `Função`,
     value: `A ideia básica de uma função, implementada em alguma linguagem de programação, é encapsular um código que poderá ser invocado/chamado por qualquer outro trecho do programa. Seu significado e uso são muito parecidos com o de funções matemáticas, ou seja, existe um nome, uma definição e posterior invocação à função.`,
+  },
+  {
+    key: `Escopo`,
+    value: `Em Ciência da Computação escopo é um contexto delimitante aos quais valores e expressões estão associados. Linguagens de programação têm diversos tipos de escopos. O tipo de escopo vai determinar quais tipos de entidades este pode conter e como estas são afetadas, em outras palavras, a sua semântica.`,
+  },
+  {
+    key: `Recursividade`,
+    value: `Em ciência da computação, a recursividade é a definição de uma sub-rotina (função ou método) que pode invocar a si mesma.`,
   },
 ];
 

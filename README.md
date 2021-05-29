@@ -71,7 +71,8 @@ Neste projeto, o objetivo é desenvolver um Bot Telegram capaz de responder dúv
 É necessário criar um bot utilizado a ferramenta `@BotFather` do telegram, além disso criar uma conta no `IBM Cloud` para utilizar ferramentas do `Watson` e `Natural Language Undersanding`.
 Para iniciar o projeto é necessário incluir as configurações de ambiente em um arquivo `.env`.
 
-```
+```.properties
+
 ASSISTANT_VERSION=
 ASSISTANT_ID=
 ASSISTANT_API_KEY=
@@ -86,24 +87,24 @@ TELEGRAM_TOKEN=
 
 Feito a configuração de ambiente é necessário rodar o camando:
 
-```
+```bash
 npm install
 ```
 
 ou
 
-```
+```bash
 yarn
 ```
 
 Após instalar as dependencias basta subir o projeto com:
 
-```
+```bash
 npm start
 ```
 
 ou
 
-```
+```bash
 yarn start
 ```

@@ -7,6 +7,7 @@ import { WikipediaService } from '../wikipedia/wikipedia.service';
 import { ConceptsService } from '../repository/concepts/concepts.service';
 import { UsageService } from '../repository/usage/usage.service';
 import { Context } from 'node:vm';
+import { join } from 'path';
 
 @Injectable()
 export class IbmWatsonService {
@@ -144,26 +145,27 @@ export class IbmWatsonService {
 
       if (intent === 'doubts-about-concepts') {
         this.msg = this.conceptsService.fetchContentFromConceptsBase(content);
-      }
-
-      if (intent === 'doubts-about-usage') {
+      } else if (intent === 'doubts-about-usage') {
         this.msg = this.usageService.fetchContentFromUsageBase(content);
-      }
-
-      if (this.msg === '' && intent !== 'not-classified') {
+      } else if (
+        this.msg === '' &&
+        categories[0].label.includes('/technology')
+      ) {
         this.msg = await this.searchWikipedia(content);
+      } else {
+        this.msg =
+          'Desculpe, não consegui classificar como uma dúvida de programação';
+        await ctx.replyWithSticker({
+          source: join(
+            __dirname,
+            '..',
+            '..',
+            './public/images/sophia-error.png'
+          ),
+        });
       }
 
-      // if (
-      //   intent === 'not-classified' &&
-      //   intent !== 'doubts-about-technology' &&
-      //   intent !== 'doubts-about-usage'
-      // ) {
-      //   this.msg =
-      //     'Desculpe, não consegui classificar como uma dúvida referente a programação.';
-      // }
-
-      return await ctx.reply(this.msg);
+      return await ctx.replyWithMarkdown(this.msg);
     } catch (err) {
       console.log(err.message);
     }
