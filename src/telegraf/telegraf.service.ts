@@ -1,4 +1,5 @@
 import { Injectable, forwardRef, Inject } from '@nestjs/common';
+import { join } from 'path';
 import { Context } from 'node:vm';
 import { CareerService } from 'src/career/career.service';
 import { LinksService } from 'src/links/links.service';
@@ -71,7 +72,9 @@ export class TelegrafService {
     });
 
     this.telegraf.start(async (ctx: Context) => {
-      await ctx.replyWithPhoto({ source: '../../public/images/Sophia-3.jpg' });
+      await ctx.replyWithPhoto({
+        source: join(__dirname, '..', '..', './public/images/Sophia-3.jpg'),
+      });
 
       const name = ctx.update.message.from.first_name;
       this.msg = `Olá, ${name}! O meu nome é Sophia e hoje estou aqui para lhe ajudar! Para começarmos, vou lhe passar todas as opções que temos, e peço para que selecione a desejada! Ah, e caso queira voltar ao menu inicial, é só enviar: \n"/start","/voltar" ou "/menu"! 🚀`;
