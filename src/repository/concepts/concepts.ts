@@ -15,14 +15,15 @@ const data: DataFormat[] = [
   },
   {
     key: `Variável`,
-    value: `Na programação, uma variável é um objeto capaz de reter e representar um valor ou expressão. Enquanto as variáveis só "existem" em tempo de execução, elas são associadas a "nomes", chamados identificadores, durante o tempo de desenvolvimento.`,
+    value: `Na programação, uma variável é um objeto capaz de reter e representar um valor ou expressão. Enquanto as variáveis só "existem" em tempo de execução, elas são associadas a "nomes", chamados identificadores, durante o tempo de desenvolvimento.
+    shorturl.at/vzIL7`,
   },
   {
     key: `Estrutura de seleção ( if / se )`,
     value: `Estrutura de seleção é, na ciência da computação, uma estrutura de desvio do fluxo de controle presente em linguagens de programação que realiza diferentes computações ou ações dependendo se a seleção é verdadeira ou falsa, em que a expressão é processada e transformada em um valor booleano.`,
   },
   {
-    key: `Estrutura de repetição ( loop / for / while / laço )`,
+    key: `Estrutura de repetição ( loop / for / while / laço /  laço de repetição)`,
     value: `Na maioria das linguagens de programação de computadores, um loop while é uma instrução de fluxo de controle que permite que o código seja executado repetidamente com base em uma determinada condição booleana. O loop while pode ser considerado uma declaração if de repetição.`,
   },
   {
@@ -158,7 +159,7 @@ const data: DataFormat[] = [
     value: ` Repetição de um trecho de código, geralmente associado a um erro na execução do programa.`,
   },
   {
-    key: `POO ( Programação Orientada a Objetos )`,
+    key: `POO ( Programação Orientada a Objetos )/ orientação a objetos`,
     value: `É um paradigma de Programação que  tenta aproximar a vida real da programação, tornando mais intuitivo e fácil de entender, além de poder repartir ainda mais o código, dividindo-o cada vez melhor.`,
   },
   {

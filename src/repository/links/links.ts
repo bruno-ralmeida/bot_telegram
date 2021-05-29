@@ -11,37 +11,34 @@ const data: LinksFormat[] = [
     category: LinksCategories.VIDEOS,
     description:
       'Curso em Vídeo - Cursos gratuitos e com certificado, conteúdo excelente para os iniciantes.',
-    link: 'https://www.youtube.com/c/CursoemV%C3%ADdeo/playlists',
+    link: 'shorturl.at/lrwGJ',
   },
   {
     category: LinksCategories.VIDEOS,
     description: 'Código Fonte TV - Canal de tecnologia',
-    link: 'https://www.youtube.com/user/codigofontetv',
+    link: 'shorturl.at/tvzQW',
   },
   {
     category: LinksCategories.VIDEOS,
     description: 'Filipe Deschamps - Canal de tecnologia',
-    link: 'https://www.youtube.com/channel/UCU5JicSrEM5A63jkJ2QvGYw',
+    link: 'shorturl.at/defNR',
   },
   {
     category: LinksCategories.BOOKS,
     description: 'Livros gratuitos publicados no repositório do GitHub.',
-    link:
-      'https://github.com/iuricode/recursos-gratuitos/blob/master/pages/materiais-gratuitos-para-estudos.br.md#-livros',
+    link: 'shorturl.at/kvCKZ',
   },
   {
     category: LinksCategories.RESOURCES,
     description:
       'Animações, Emojis, Fontes, Icones, Ilustrações e vetores, Imagens, Logos e Paleta de cores publicados no repositório do GitHub.',
-    link:
-      'https://github.com/iuricode/recursos-gratuitos/blob/master/pages/materiais-gratuitos-para-sites.br.md',
+    link: 'shorturl.at/jpsY8',
   },
   {
     category: LinksCategories.RESOURCES,
     description:
       'Ferramentas de desenvolvimento, IDEs e editores de código, Linguagens de programação e Hospedagem',
-    link:
-      'https://github.com/iuricode/recursos-gratuitos/blob/master/pages/materiais-gratuitos-para-devs.br.md',
+    link: 'shorturl.at/wES49',
   },
   {
     category: LinksCategories.RESOURCES,
@@ -63,12 +60,12 @@ const data: LinksFormat[] = [
     category: LinksCategories.IDEAS,
     description:
       'Ideias de aplicativos para colocar em pratica todos os conceitos estudados',
-    link: 'https://github.com/florinpop17/app-ideas',
+    link: 'shorturl.at/yEL07',
   },
   {
     category: LinksCategories.IDEAS,
     description: 'Desafios para desenvolvedores Front-end',
-    link: 'https://github.com/felipefialho/frontend-challenges',
+    link: 'shorturl.at/cnzS8',
   },
 ];
 

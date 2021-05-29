@@ -12,23 +12,15 @@ const data: GameFormat[] = [
   },
   {
     category: CareersCategories.FRONTEND,
-    quizLink: 'Sem Link',
+    quizLink: 't.me/QuizBot?start=85OOCqdA',
   },
   {
     category: CareersCategories.DEVOPS,
     quizLink: 't.me/QuizBot?start=GtJsyTJc',
   },
   {
-    category: CareersCategories.MOBILE,
-    quizLink: 'Sem Link',
-  },
-  {
-    category: CareersCategories.MOBILE,
-    quizLink: 'Sem Link',
-  },
-  {
     category: CareersCategories.UIUX,
-    quizLink: 'Sem Link',
+    quizLink: 't.me/QuizBot?start=9iFKUObZ',
   },
 ];
 

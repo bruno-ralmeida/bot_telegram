@@ -33,6 +33,8 @@ export class TelegrafService {
     this.career = new CareerService(this.telegraf);
 
     this.telegraf.hears(this.selectedOptionMenuTrigger, async (ctx) => {
+      ctx.getStickerSet('https://t.me/addstickers/Botzeiro/');
+      ctx.replyWithSticker('🤖');
       this.category = ctx.match.input;
       switch (this.category) {
         case 'Conversar comigo':
@@ -55,6 +57,7 @@ export class TelegrafService {
         case 'Game':
           await ctx.reply('Certo! Vamos jogar 🎮');
           await this.game.startGame(ctx);
+
           break;
 
         default:
@@ -72,6 +75,7 @@ export class TelegrafService {
     this.telegraf.start((ctx: Context) => {
       const name = ctx.update.message.from.first_name;
       this.msg = `Olá, ${name}! O meu nome é Sophia e hoje estou aqui para lhe ajudar! Para começarmos, vou lhe passar todas as opções que temos, e peço para que selecione a desejada! Ah, e caso queira voltar ao menu inicial, é só enviar: \n"/start","/voltar" ou "/menu"! 🚀`;
+
       this.showStartupMenu(this.msg, ctx);
     });
 

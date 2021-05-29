@@ -10,7 +10,6 @@ export class GameService {
     'Back-End',
     'Front-End',
     'DevOps',
-    'Mobile',
     'UI/UX',
   ];
 

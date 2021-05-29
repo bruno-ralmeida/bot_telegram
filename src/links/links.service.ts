@@ -23,7 +23,7 @@ export class LinksService {
       );
 
       const msg = `Você selecionou a categoria ${category}. \n${linksCategories.map(
-        (op) => `${op.description} e ${op.link}`
+        (op) => `\n${op.description} - ${op.link}\n`
       )}`;
 
       ctx.reply(msg, Markup.keyboard(['/voltar']));
