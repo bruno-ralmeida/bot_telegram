@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Context } from 'node:vm';
+import { join } from 'path';
 import { Markup, Telegraf } from 'telegraf';
 import { GameRepositoryService } from '../repository/game/gameRepository.service';
 
@@ -22,13 +23,16 @@ export class GameService {
         category
       );
 
-      const msg = `Você selecionou a categoria ${category}.\n Esse link pode ser compartilhado com amigos: \n${gameCategory}`;
+      const msg = `Você selecionou a categoria ${category}.\n\nEsse link pode ser compartilhado com amigos:\n\n${gameCategory.quizLink}`;
 
       ctx.reply(msg, Markup.keyboard(['/voltar']));
     });
   }
 
   async startGame(ctx: Context) {
+    await ctx.replyWithSticker({
+      source: join(__dirname, '..', '..', './public/images/sophia-white.png'),
+    });
     return await ctx.reply(
       'Selecione uma categoria:',
       Markup.keyboard(this.gameMenuCategories).resize()

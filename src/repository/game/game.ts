@@ -1,6 +1,6 @@
 import { CareersCategories } from '../../helpers';
 
-interface GameFormat {
+export interface GameFormat {
   category: CareersCategories;
   quizLink: string;
 }

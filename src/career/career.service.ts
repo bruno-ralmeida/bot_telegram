@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Context } from 'node:vm';
+import { join } from 'path';
 import { Markup, Telegraf } from 'telegraf';
 import { CareerRepositoryService } from '../repository/career/careerRepository.service';
 
@@ -11,7 +12,6 @@ export class CareerService {
     '02 Front-End',
     '03 DevOps',
     '04 Mobile',
-    '05 UI/UX',
   ];
   constructor(private readonly telegraf: Telegraf) {
     this.telegraf = telegraf;
@@ -22,13 +22,16 @@ export class CareerService {
         category
       );
 
-      const msg = `Você selecionou a categoria ${category}. \n${roadmap.text}`;
+      const msg = `Você selecionou a categoria ${category}.\n\n${roadmap.text}`;
 
       ctx.reply(msg, Markup.keyboard(['/voltar']));
     });
   }
 
   async showRoadmap(ctx: Context) {
+    await ctx.replyWithSticker({
+      source: join(__dirname, '..', '..', './public/images/sophia-white.png'),
+    });
     return await ctx.reply(
       'Selecione uma categoria:',
       Markup.keyboard(this.careerMenuCategories).resize()

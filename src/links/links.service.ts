@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Context } from 'node:vm';
+import { join } from 'path';
 import { Markup, Telegraf } from 'telegraf';
 import { LinksRepositoryService } from '../repository/links/linksRepository.service';
 
@@ -23,15 +24,20 @@ export class LinksService {
       );
 
       const links = linksCategories.map(
-        (op) => `${op.description} - ${op.link}\n`
+        (op) => `${op.description}: \n ${op.link}\n\n`
       );
-      const msg = `Você selecionou a categoria ${category}. \n${links}`;
+      const msg = `Você selecionou a categoria: ${category}. \n\n${links.join(
+        '\n'
+      )}`;
 
       ctx.reply(msg, Markup.keyboard(['/voltar']));
     });
   }
 
   async showLinks(ctx: Context) {
+    await ctx.replyWithSticker({
+      source: join(__dirname, '..', '..', './public/images/sophia-blue.png'),
+    });
     return await ctx.reply(
       'Selecione uma categoria:',
       Markup.keyboard(this.linksMenuCategories).resize()

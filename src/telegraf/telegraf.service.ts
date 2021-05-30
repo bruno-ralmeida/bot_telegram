@@ -47,23 +47,23 @@ export class TelegrafService {
             ),
           });
           await ctx.reply(
-            'Certo! O que você gostaria de saber? ✨️',
+            `Certo! O que você gostaria de saber?
+            Dica: Faça perguntas como:
+            "O que é uma variável?" 
+            "Como utilizar uma variável?"`,
             Markup.removeKeyboard()
           );
           break;
 
         case 'Carreira':
-          await ctx.reply('Vamos conversar de carreira meu bom. 💼');
           await this.career.showRoadmap(ctx);
           break;
 
         case 'Links Úteis':
-          await ctx.reply('Vou te enviar uns links meu bom. 💡');
           await this.links.showLinks(ctx);
           break;
 
         case 'Game':
-          await ctx.reply('Certo! Vamos jogar 🎮');
           await this.game.startGame(ctx);
 
           break;
@@ -75,8 +75,6 @@ export class TelegrafService {
     });
 
     this.telegraf.hears(this.menuTrigger, (ctx: Context) => {
-      const name = ctx.update.message.from.first_name;
-      this.msg = `Olá, ${name}!🚀`;
       this.showStartupMenu(this.msg, ctx);
     });
 
@@ -86,7 +84,7 @@ export class TelegrafService {
       });
 
       const name = ctx.update.message.from.first_name;
-      this.msg = `Olá, ${name}! O meu nome é Sophia e hoje estou aqui para lhe ajudar! Para começarmos, vou lhe passar todas as opções que temos, e peço para que selecione a desejada! Ah, e caso queira voltar ao menu inicial, é só enviar: \n"/start","/voltar" ou "/menu"! 🚀`;
+      this.msg = `Olá, ${name}! O meu nome é Sophia e hoje estou aqui para lhe ajudar! Para começarmos, vou lhe passar todas as opções que temos, e peço para que selecione a desejada! Ah, e caso queira voltar ao menu inicial, é só enviar: \n"/start", "/voltar" ou "/menu"! 🚀`;
 
       this.showStartupMenu(this.msg, ctx);
     });
@@ -94,7 +92,8 @@ export class TelegrafService {
     this.telegraf.on('text', (ctx: Context) => {
       try {
         if (this.category != 'Conversar sobre programação')
-          return ctx.reply('Por favor, informe uma opção válida do menu.');
+          return ctx.reply(`Por favor, informe uma opção válida.
+          Caso queira voltar ao menu inicial, é só enviar: \n"/start", "/voltar" ou "/menu"!`);
 
         this.watsonService.watsonResponse(ctx);
       } catch (error) {
