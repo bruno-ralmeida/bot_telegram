@@ -9,9 +9,10 @@ export class LinksService {
   private readonly linksRepository = new LinksRepositoryService();
   private readonly linksMenuCategories: string[] = [
     'Videos',
+    'Cursos',
     'Recursos Gratuitos',
     'Livros/Apostilas',
-    'Ideias ou referencia de layout',
+    'Ideias para APP/Referência de Layout',
   ];
 
   constructor(private readonly telegraf: Telegraf) {

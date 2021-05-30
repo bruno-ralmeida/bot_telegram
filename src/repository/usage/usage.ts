@@ -5,7 +5,7 @@ const data: DataFormat[] = [
     key: `algoritmo`,
     value: `
     A estrutra de um algoritmo é:
-    \`\`\`javascript
+    \`\`\`
     Inicio
       <declarações de variáveis>
       <comandos>
@@ -40,7 +40,7 @@ const data: DataFormat[] = [
   {
     key: `if se`,
     value: `O comando se (if) permite que uma parte do programa seja executada apenas quando uma condição for verdadeira. A sintaxe do comando if é a seguinte:
-    \`\`\`javascript
+    \`\`\`
     se condição_do_se:  //Expressão booleana
     //bloco executado se a condição for verdadeira
       comando_1
@@ -54,7 +54,7 @@ const data: DataFormat[] = [
   {
     key: `if-else`,
     value: `Em várias ocasiões é necessário executar blocos de forma alternativa.Nesses casos, podemos utilizar o comando if-else, cuja sintaxe é a seguinte:
-    \`\`\`javascript
+    \`\`\`
     if condição:
       // bloco contendo comandos a serem executados
       dentro_do_if_1
@@ -70,47 +70,32 @@ const data: DataFormat[] = [
       \`\`\``,
   },
   {
-    key: `for`,
+    key: `for loop`,
     value: `O laço for é uma estrutura de repetição muito utilizada.
       É muito útil quando se sabe de antemão quantas vezes a repetição deverá ser executada.
       Este laço utiliza uma variável para controlar a contagem do loop, bem como seu incremento.
       Trata-se de um comando bem enxuto, já que própria estrutura faz a inicialização, incremento e encerramento do laço.
       Sintaxe:
-      \`\`\`javascript
-      for(valor_inicial; condição_final; valor_incremento)
-       {
-       instruções;
-       }
+      \`\`\`
+      para ( iniciação ; condição ; passo )
+        corpo
+      fimpara
        \`\`\``,
   },
   {
     key: `While`,
     value: `O exemplo abaixo mostra o uso do comando de repetição while:
-    \`\`\`javascript
-    int contador = 0;
-
-    while( contador < 5 )
-    {
-      printf( "contador = %d", contador);
-      contador += 1;
-    }
-
-    printf("ACABOU !!!!");
-Saída:
-
-    contador = 0
-    contador = 1
-    contador = 2
-    contador = 3
-    contador = 4
-    ACABOU !!!!
+    \`\`\`
+    ENQUANTO <expressão booleana> FAÇA
+      <instruções a serem executadas enquanto a expressão booleana resultar em VERDADEIRO>
+    FIM-ENQUANTO
     \`\`\`
     `,
   },
   {
     key: `Recursividade`,
     value: `O exemplo mais comum:
-    \`\`\`javascript
+    \`\`\`
     int fat(int n){
     if(n == 0) return 1;
     return n*fat(n-1);

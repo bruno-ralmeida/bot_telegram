@@ -1,4 +1,3 @@
-import { links } from 'wikipedia/dist/page';
 import { LinksCategories } from '../../helpers';
 
 export interface LinksFormat {
@@ -10,10 +9,8 @@ export interface LinksFormat {
 const data: LinksFormat[] = [
   {
     category: LinksCategories.VIDEOS,
-    description:
-      'Curso em Vídeo - Cursos gratuitos e com certificado, conteúdo excelente para os iniciantes.',
-    link:
-      'https://www.cursoemvideo.com/  ou  https://www.youtube.com/user/cursosemvideo',
+    description: 'Videos educativos sobre tecnologia em inglês',
+    link: 'https://www.youtube.com/c/Socratica/featured',
   },
   {
     category: LinksCategories.VIDEOS,
@@ -27,6 +24,25 @@ const data: LinksFormat[] = [
     link: 'https://www.youtube.com/channel/UCU5JicSrEM5A63jkJ2QvGYw',
   },
   {
+    category: LinksCategories.COURSE,
+    description:
+      'Curso em Vídeo - Cursos gratuitos e com certificado, conteúdo excelente para os iniciantes.',
+    link:
+      'https://www.cursoemvideo.com/  ou  https://www.youtube.com/user/cursosemvideo',
+  },
+  {
+    category: LinksCategories.COURSE,
+    description:
+      'Plataforma gratuita de cursos em inglês com prática sobre front-end, back-end, Python e muitos outros',
+    link: 'https://www.freecodecamp.org/learn',
+  },
+  {
+    category: LinksCategories.COURSE,
+    description: 'Plataforma de cursos interativos sobre programação em inglês',
+    link: 'https://www.educative.io',
+  },
+
+  {
     category: LinksCategories.BOOKS,
     description: 'Livros gratuitos publicados no repositório do GitHub.',
     link:
@@ -36,6 +52,18 @@ const data: LinksFormat[] = [
     category: LinksCategories.RESOURCES,
     description: 'Recursos gratuitos de código aberto',
     link: 'https://free-for.dev/',
+  },
+  {
+    category: LinksCategories.RESOURCES,
+    description:
+      'Trilhas de carreira para back-end, front-end, Android, DevOps e outros em inglês',
+    link: 'https://roadmap.sh',
+  },
+  {
+    category: LinksCategories.RESOURCES,
+    description:
+      'Repositorio com ideias e tutoriais de projetos utilizando diversas tecnologias e linguagens diferentes em inglês',
+    link: 'https://github.com/tuvtran/project-based-learning',
   },
   {
     category: LinksCategories.RESOURCES,
@@ -51,11 +79,7 @@ const data: LinksFormat[] = [
     link:
       'https://github.com/iuricode/recursos-gratuitos/blob/master/pages/materiais-gratuitos-para-devs.br.md#-ferramentas-de-desenvolvimento',
   },
-  {
-    category: LinksCategories.RESOURCES,
-    description: 'Inspiração de layouts',
-    link: 'https://dribbble.com/',
-  },
+
   {
     category: LinksCategories.RESOURCES,
     description: 'Guia de CSS',
@@ -63,9 +87,19 @@ const data: LinksFormat[] = [
   },
   {
     category: LinksCategories.RESOURCES,
+    description: 'Recursos para animações integradas com JavaScript',
+    link: 'https://animejs.com/',
+  },
+  {
+    category: LinksCategories.RESOURCES,
     description:
       'Whimiscal - Ferramenta de apoio para desenvolvimento de brainstorming, fluxos de usuários e diagramas',
     link: 'https://whimsical.com/',
+  },
+  {
+    category: LinksCategories.IDEAS,
+    description: 'Inspiração de layouts',
+    link: 'https://dribbble.com/',
   },
   {
     category: LinksCategories.IDEAS,
