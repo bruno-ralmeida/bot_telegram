@@ -46,17 +46,68 @@ const data: DataFormat[] = [
     value: `Programação lógica é um paradigma de programação que faz uso da lógica matemática. John McCarthy [1958] foi o primeiro a publicar uma proposta de uso da lógica matemática para programação`,
   },
   {
+    key: `Polimorfismo`,
+    value: `Em programação orientada a objetos, polimorfismo é o princípio pelo qual duas ou mais classes derivadas da mesma superclasse podem invocar métodos que têm a mesma assinatura, mas comportamentos distintos.`,
+  },
+  {
+    key: `Herança`,
+    value: `A herança é um princípio próprio à programação orientada a objetos (POO) que permite criar uma nova classe a partir de uma já existente. ... Herança, também chamada de subclasses, provém da subclasse, da classe recém-criada que contém atributos e métodos da qual deriva.`,
+  },
+  {
+    key: `Encapsulamento`,
+    value: `Encapsulamento vem de encapsular, que em programação orientada a objetos significa separar o programa em partes, o mais isolado possível. A idéia é tornar o software mais flexível, fácil de modificar e de criar novas implementações`,
+  },
+  {
+    key: `Front-end frontend front end`,
+    value: `front-end é responsável por “dar vida” à interface. Trabalha com a parte da aplicação que interage diretamente com o usuário`,
+  },
+  {
+    key: `Mobile`,
+    value: `O(a) Desenvolvedor Mobile atua no desenvolvimento de aplicativos ou sistemas, programando nativamente ou por meio de outras linguagens, para dispositivos móveis.`,
+  },
+  {
+    key: `SQL`,
+    value: `SQL é uma linguagem declarativa de sintaxe relativamente simples, voltada a bancos de dados relacionais`,
+  },
+  {
     key: `API - Interface de programação de aplicações`,
     value: `As APIs são um conjunto de padrões que fazem parte de uma interface e que permitem a criação de plataformas de maneira mais simples e prática para desenvolvedores. A partir de APIs é possível criar softwares, aplicativos, programas e plataformas diversas. Por exemplo, apps desenvolvidos para celulares Android e iPhone (iOS) são criados a partir de padrões definidos e disponibilizados pelas APIs de cada sistema operacional.`,
   },
-
   {
-    key: `Estrutura de seleção ( if / se )`,
+    key: `Estrutura de seleção / Estrutura de decisão ( if / se )`,
     value: `Estrutura de seleção é, na ciência da computação, uma estrutura de desvio do fluxo de controle presente em linguagens de programação que realiza diferentes computações ou ações dependendo se a seleção é verdadeira ou falsa, em que a expressão é processada e transformada em um valor booleano.`,
   },
   {
-    key: `Estrutura de repetição ( loop / for / while / laço /  laço de repetição)`,
-    value: `Na maioria das linguagens de programação de computadores, um loop while é uma instrução de fluxo de controle que permite que o código seja executado repetidamente com base em uma determinada condição booleana. O loop while pode ser considerado uma declaração if de repetição.`,
+    key: `switch switch case`,
+    value: `Nas linguagens de programação de computador, uma instrução switch é um tipo de mecanismo de controle de seleção usado para permitir que o valor de uma variável ou expressão mude o fluxo de controle da execução do programa via pesquisa e mapa.`,
+  },
+  {
+    key: `else`,
+    value: `A condição else serve como um caminho alternativo do if. Ou seja, o else vai ser executado se a condição sendo verificada no if for falsa.`,
+  },
+  {
+    key: `REST`,
+    value: `Representational State Transfer, em português Transferência Representacional de Estado, é um estilo de arquitetura de software que define um conjunto de restrições a serem usadas para a criação de web services.`,
+  },
+  {
+    key: `HTML`,
+    value: `HTML abreviação para a expressão inglesa HyperText Markup Language, que significa: "Linguagem de Marcação de Hipertexto" é uma linguagem de marcação utilizada na construção de páginas na Web. Documentos HTML podem ser interpretados por navegadores. A tecnologia é fruto da junção entre os padrões HyTime e SGML.`,
+  },
+  {
+    key: `Banco de Dados`,
+    value: `Bancos de dados ou bases de dados são conjuntos de arquivos relacionados entre si com registros sobre pessoas, lugares ou coisas. São coleções organizadas de dados que se relacionam de forma a criar algum sentido e dar mais eficiência durante uma pesquisa ou estudo científico.`,
+  },
+  {
+    key: `DevOps`,
+    value: `Na Ciência da Computação o DevOps, é uma cultura na engenharia de software que aproxima os desenvolvedores de software e os operadores do software / administradores do sistema, com característica `,
+  },
+  {
+    key: `Linguagem de Programação`,
+    value: `A linguagem de programação é um método padronizado, formado por um conjunto de regras sintáticas e semânticas, de implementação de um código fonte - que pode ser compilado e transformado em um programa de computador, ou usado como script interpretado - que informará instruções de processamento ao computador.`,
+  },
+  {
+    key: `Estrutura de repetição ( loop / for / while / laço /  laço de repetição / foreach)`,
+    value: `Na maioria das linguagens de programação de computadores, um loop é uma instrução de fluxo de controle que permite que o código seja executado repetidamente com base em uma determinada condição booleana. O loop pode ser considerado uma declaração if de repetição. Existe também o foreach, em português para cada, é uma expressão idiomática de linguagem de computador para travessia de itens em um coleção. Foreach geralmente é usada em lugar de uma declaração for padrão.`,
   },
   {
     key: `Array ( Vetor / Arranjo )`,
@@ -84,7 +135,7 @@ const data: DataFormat[] = [
   },
 
   {
-    key: `Back-end backend`,
+    key: `Back-end backend back end`,
     value: `Programador que trabalha com a lógica da aplicação, armazenamento e segurança de todos os dados gerados.`,
   },
   {
@@ -156,12 +207,16 @@ const data: DataFormat[] = [
     value: `É a linguagem de programação que tem um nível de abstração elevado, se aproximando à linguagem humana.`,
   },
   {
-    key: `Loop`,
-    value: ` Repetição de um trecho de código, geralmente associado a um erro na execução do programa.`,
-  },
-  {
     key: `POO ( Programação Orientada a Objetos )/ orientação a objetos`,
     value: `É um paradigma de Programação que  tenta aproximar a vida real da programação, tornando mais intuitivo e fácil de entender, além de poder repartir ainda mais o código, dividindo-o cada vez melhor.`,
+  },
+  {
+    key: `Tipos de dados`,
+    value: `Em ciência da computação tipos de variáveis ou dados é uma combinação de valores e de operações que uma variável pode executar, o que pode variar conforme o sistema operacional e a linguagem de computador.`,
+  },
+  {
+    key: `Concatenação Concatenar`,
+    value: `O operador de concatenação é o sinal de mais (+). Você pode combinar ou concatenar duas ou mais cadeias de caracteres em uma única cadeia de caracteres.`,
   },
   {
     key: `Pull Request`,

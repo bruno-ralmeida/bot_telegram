@@ -106,8 +106,9 @@ export class IbmWatsonService {
       const analyzeTextResult = await this.analyzeText(userInput);
       const { keywords, concepts, categories, intents } = analyzeTextResult;
       let intent = 'not-classified';
+      let category = '';
       if (intents.length > 0) intent = intents[0].intent;
-
+      if (categories.length > 0) category = categories[0].label;
       if (intent === 'greeting') {
         return ctx.reply('Olá');
       }
@@ -117,7 +118,7 @@ export class IbmWatsonService {
       if (keywords.length <= 0 && concepts.length <= 0) {
         userInput
           .normalize('NFD')
-          .replace(/([\u0300-\u036f]|[^\s-0-9a-zA-Z])/g, '')
+          .replace(/(^\#]|[\?])/g, '')
           .replace(
             /\b(o|que|qual|como|e|eh|de|uma|um|declarar|atribuir|valor)\b/gi,
             ''
@@ -148,8 +149,8 @@ export class IbmWatsonService {
       } else if (intent === 'doubts-about-usage') {
         this.msg = this.usageService.fetchContentFromUsageBase(content);
       } else if (
-        this.msg === '' &&
-        categories[0].label.includes('/technology')
+        category.includes('/technology') &&
+        intent === 'not-classified'
       ) {
         this.msg = await this.searchWikipedia(content);
       } else {

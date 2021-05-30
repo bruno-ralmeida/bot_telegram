@@ -10,6 +10,6 @@ export class WikipediaService {
   }
 
   fetchContentFromWikipedia(content: string) {
-    return wiki.summary(content);
+    return wiki.summary(content.replace('#', 'sharp'));
   }
 }
