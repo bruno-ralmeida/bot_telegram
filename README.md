@@ -46,7 +46,7 @@ Neste projeto, o objetivo é desenvolver um Bot Telegram capaz de responder dúv
 
 > #### Apresentação 📽️
 
-<img src="public/../public/images/sophia.png" width="350px" >
+<img src="public/../public/images/sophia.png" width="150px" >
 
 [Vídeo Sophia]()
 
@@ -61,14 +61,14 @@ Neste projeto, o objetivo é desenvolver um Bot Telegram capaz de responder dúv
 >
 > A `Sophia` possuí funções como
 
-- `Conversar comigo` Onde você pode questionar sobre dúvidas referentes a programação (Conceitos/Uso).
+- `Conversar sobre programação` Onde você pode questionar sobre dúvidas referentes a programação (Conceitos/Uso).
 - `Carreira` - Mostramos um guia de sugestão sobre o que estudar de acordo com a categoria selecionada.
 - `Links úteis` - Nessa sessão compartilhamos links que podem te ajudar no decorrer da carreira.
 - `Game` - Um jogo de pergunta e resposta onde utilizamos o [`@quizbot`](https://telegram.org/tour/quizbot), atualmente em 5 categorias (Back-end, Front-end, DevOps, Mobile, UI/UX).
 
 > #### Inciando projeto.
 
-É necessário criar um bot utilizado a ferramenta `@BotFather` do telegram, além disso criar uma conta no `IBM Cloud` para utilizar ferramentas do `Watson` e `Natural Language Undersanding`.
+É necessário criar um bot utilizado a ferramenta `@BotFather` do telegram, além disso criar uma conta no `IBM Cloud` para utilizar **ferramentas** do `Watson` e `Natural Language Undersanding`.
 Para iniciar o projeto é necessário incluir as configurações de ambiente em um arquivo `.env`.
 
 ```.properties

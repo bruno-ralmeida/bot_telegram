@@ -21,7 +21,8 @@ export class ConceptsService {
 
     typeof itemSearch !== 'undefined'
       ? (result = itemSearch.value)
-      : (result = 'Desculpe, não consegui encontrar na minha base de dados.');
+      : (result =
+          'Poxa 😢 não consigo responder sua pergunta, ainda estou em fase de treinamento.');
 
     return result;
   }
