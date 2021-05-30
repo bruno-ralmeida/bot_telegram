@@ -229,6 +229,74 @@ const data: DataFormat[] = [
     key: `Recursividade`,
     value: `Em ciência da computação, a recursividade é a definição de uma sub-rotina (função ou método) que pode invocar a si mesma.`,
   },
+  {
+    key: `Polimorfismo`,
+    value: `Definimos Polimorfismo como um princípio a partir do qual as classes derivadas de uma única classe base são capazes de invocar os métodos que, embora apresentem a mesma assinatura, comportam-se de maneira diferente para cada uma das classes derivadas.`,
+  },
+  {
+    key: `Herança`,
+    value: `A Herança possibilita que as classes compartilhem seus atributos, métodos e outros membros da classe entre si. Para a ligação entre as classes, a herança adota um relacionamento esquematizado hierarquicamente.`,
+  },
+  {
+    key: `Encapsulamento`,
+    value: `O encapsulamento é um dos pilares da orientação a objetos. Por meio dele, é possível simplificar bastante a programação, bem como proteger informações sigilosas ou sensíveis. Dominar esse conceito é fundamental, uma vez que com ele é possível deixar o código mais legível, funcional e reutilizável.`,
+  },
+  {
+    key: `Estruturas de Decisão`,
+    value: `As estruturas de decisão (também conhecidas como Estruturas Condicionais) exigem que o programador especifique uma ou mais condição a ser testada pelo programa, juntamente com uma instrução (ou conjunto) a ser executada se o resultado do teste for verdadeiro, e, opcionalmente, outra instrução ou conjunto de instruções caso o resultado do teste seja falso.`,
+  },
+  {
+    key: `C# (C Sharp)`,
+    value: `O C# é uma linguagem de programação muito popular, sendo uma excelente escolha devido a sua baixa curva de aprendizado e simplicidade (mas sem deixar de ser uma linguagem poderosa). Além disso, ela é a linguagem principal do .NET Framework, o framework para desenvolvimento da Microsoft.`,
+  },
+  {
+    key: `JavaScript`,
+    value: `JavaScript é uma linguagem de programação que permite a você implementar itens complexos em páginas web toda vez que uma página da web faz mais do que simplesmente mostrar a você informação estática mostrando conteúdo que se atualiza em um intervalo de tempo, mapas interativos ou gráficos 2D/3D animados, etc. Você pode apostar que o JavaScript provavelmente está envolvido.`,
+  },
+  {
+    key: `REST`,
+    value: `REST significa Representational State Transfer. Em português, Transferência de Estado Representacional. Trata-se de uma abstração da arquitetura da Web. Resumidamente, o REST consiste em princípios/regras/constraints que, quando seguidas, permitem a criação de um projeto com interfaces bem definidas. Desta forma, permitindo, por exemplo, que aplicações se comuniquem.`,
+  },
+  {
+    key: `HTML`,
+    value: `Criada pelo britânico Tim Berners-Lee, o acrônimo HTML significa HiperText Markup Language, traduzindo ao português: Linguagem de Marcação de Hipertexto.  O HTML é o componente básico da web, ele permite inserir o conteúdo e estabelecer a estrutura básica de um website. Portanto, ele serve para dar significado e organizar as informações de uma página na web. Sem isso, o navegador não saberia exibir textos como elementos ou carregar imagens e outros conteúdos.`,
+  },
+  {
+    key: `switch`,
+    value: `É uma forma de reduzir a complexidade de vários if … else encadeados.
+
+    É muito utilizado, principalmente para uso em estruturas de menu.
+    
+    O conteúdo de uma variável é comparado com um valor constante, e caso a comparação seja verdadeira, um determinado comando é executado.`,
+  },
+  {
+    key: `While`,
+    value: `Esta instrução é usada quando não sabemos quantas vezes um determinado bloco de instruções precisa ser repetido. Com ele, a execução das instruções vai continuar até que uma condição seja verdadeira. A condição a ser analisada para a execução do laço de repetição deverá retornar um valor booleano.`,
+  },
+  {
+    key: `For`,
+    value: `A instrução for se caracteriza por obrigar o programador a definir, explicitamente em seu cabeçalho, a quantidade de vezes [ciclos] que será executado. A quantidade de ciclos é determinado pela quantidade de elementos contido na lista declarada junto com a instrução for. Dessa forma, será executado um ciclo para cada elemento isoladamente.`,
+  },
+  {
+    key: `Foreach`,
+    value: `O foreach é um recurso que possibilita executar um conjunto de comandos para cada elemento presente em uma coleção (Array, List, Stack, Queue e outras). Portanto, diferentemente do while e do for, não precisamos definir uma condição de parada. Isso é definido de forma implícita, pelo tamanho da coleção.`,
+  },
+  {
+    key: `O que é linguagem de programação?`,
+    value: `É por onde o hardware (máquina) e o programador se comunicam. 
+
+    É uma linguagem formal que funciona por meio de uma série de instruções, símbolos, palavras-chave, regras semânticas e sintáticas.
+    
+    A linguagem de programação permite que um programador crie programas a partir de um conjunto de ordens, ações consecutivas, dados e algoritmos.`,
+  },
+  {
+    key: `O que é banco de dados?`,
+    value: `O banco de dados é a organização e armazenagem de informações sobre um domínio específico. De forma mais simples, é o agrupamento de dados que tratam do mesmo assunto, e que precisam ser armazenados para segurança ou conferência futura.`,
+  },
+  {
+    key: `O que é DevOps?`,
+    value: `Devops é um termo criado para descrever um conjunto de práticas para integração entre as equipes de desenvolvimento de softwares, operações (infraestrutura ou sysadmin) e de apoio envolvidas (como controle de qualidade) e a adoção de processos automatizados para produção rápida e segura de aplicações e serviços. O conceito propõe novos pensamentos sobre o trabalho para a valorização da diversidade de atividades e profissionais envolvidos e atitudes colaborativas. É um processo que torna possível o desenvolvimento ágil de aplicações em um modelo de gestão de infraestrutura definido sob regras rígidas e burocráticas.`,
+  },
 ];
 
 export default data;

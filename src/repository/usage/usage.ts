@@ -23,10 +23,12 @@ const data: DataFormat[] = [
   },
   {
     key: `variável`,
-    value: `Em linguagem C usamos o operador = para fazer uma atribuição.
-      Exemplo:
-      X = 10;
-      Este comando atribui o valor 10 para a variável X.`,
+    value: `A Sintax de atribuição de uma variável em portugol é assim:
+    variavel inteiro idade <- 18
+    variavel real peso <- 23.14
+    logico repetente
+    texto nome <- "Antonio" , apelido <- "Sousa"
+    caracter sexo`,
   },
   {
     key: `if`,
@@ -102,6 +104,21 @@ Saída:
     for(i=1; i <=n; i++) f *= i;
     return f;
     }`,
+  },
+  {
+    key: `switch`,
+    value: `O exemplo mais comum:
+    Escolha (Variável)
+Inicio
+   Caso (Valor1): 
+      Instruções;
+   
+   Caso (Valor2): 
+     Instruções;
+   
+   Caso (ValorN): 
+     Instruções;
+Fim;`,
   },
 ];
 export default data;
