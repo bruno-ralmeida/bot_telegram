@@ -48,7 +48,7 @@ Neste projeto, o objetivo é desenvolver um Bot Telegram capaz de responder dúv
 
 <img src="public/../public/images/sophia.png" width="150px" >
 
-[Vídeo Sophia]()
+[Vídeo Sophia](https://youtu.be/eB8fDBbfig0)
 
 > #### Tecnologias utilizadas 💡
 
